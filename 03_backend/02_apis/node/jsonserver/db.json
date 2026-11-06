@@ -1,0 +1,108 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "category 1"
+    },
+    {
+      "id": "2",
+      "name": "category 2"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "product 1",
+      "price": 100,
+      "category": "1"
+    },
+    {
+      "id": "2",
+      "name": "product 2",
+      "price": 200,
+      "category": "2"
+    }
+  ],
+  "categories_products": [
+    {
+      "id": "1",
+      "categoryId": "1",
+      "productId": "1"
+    },
+    {
+      "id": "2",
+      "categoryId": "2",
+      "productId": "2"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "products": [
+        {
+          "id": "1",
+          "name": "product 1",
+          "price": 100,
+          "category": "1"
+        },
+        {
+          "id": "2",
+          "name": "product 2",
+          "price": 200,
+          "category": "2"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "email": "oliver@stone.com.co",
+      "password": "$2a$10$7RHwMAyXvacWjJLpjlb5EeriqQOH5QJB/z.mNO8VOXaLk5NFx1rAG",
+      "id": 1
+    },
+    {
+      "email": "profe@albeiro.com",
+      "password": "$2a$10$HnXRFN/jWdkNNH/aDwj2RuOexP81RfiIUUfFTbD.IwPY2nVCcgtjC",
+      "id": 4
+    },
+    {
+      "email": "pepito@perez.com",
+      "password": "$2a$10$fUZ9oh/.Dc.oSoiNpJuMpuUmMS3CTNhBK8UwQbDTBpuThx8KVv/VO",
+      "id": 5
+    },
+    {
+      "email": "rosita@rosano.com",
+      "password": "$2a$10$EYMJmJ1cXB/B.T.CeYwclO.wcYQ1ypmAZ5g9r3rSatGlSCfYNcrai",
+      "id": 6
+    },
+    {
+      "email": "mundo@hola.com",
+      "password": "$2a$10$ja7gq047VJ8z9C/.wHNXc.O7OMGpHFw3J.5UhBZGojkGQWC7SSJeS",
+      "id": 7
+    }
+  ]
+}

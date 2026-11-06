@@ -1,0 +1,872 @@
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+/* ---------------------------------- GUÍA DE ESTILO ----------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+/* 1. COMPONENTES ---------------------------------------------------------------------- */
+/*  1.1. General ----------------------------------------------------------------------- */
+/*  1.2. Bordes ------------------------------------------------------------------------ */
+/*  1.3. Colores ----------------------------------------------------------------------- */
+/*  1.4. Tarjeta ----------------------------------------------------------------------- */
+/*  1.5. Imágenes ---------------------------------------------------------------------- */
+/*  1.6. Texto ------------------------------------------------------------------------- */
+/*  1.7. Botón Enlace ------------------------------------------------------------------ */
+/*  1.8. Sonidos ----------------------------------------------------------------------- */
+/*  1.9. Vídeos ------------------------------------------------------------------------ */
+/* 1.10. Iframe ----------------------------------------------------------------------- */
+/* 1.11. Iconografía ------------------------------------------------------------------- */
+/* 1.12. Navegación -------------------------------------------------------------------- */
+/* 1.13. Retorno Inicio ---------------------------------------------------------------- */
+/* 1.14. Migas de pan ------------------------------------------------------------------ */
+/* 1.15. Contenido --------------------------------------------------------------------- */
+/* 1.16. Formularios ------------------------------------------------------------------- */
+/* 1.17. Tablas ------------------------------------------------------------------------ */
+/* 1.18. Modal ------------------------------------------------------------------------- */
+/* 1.19. Plugins ----------------------------------------------------------------------- */
+/* 2. LAYOUT: ESCRITORIO Y PORTATIL ---------------------------------------------------- */
+/* 2.1. Contenedor --------------------------------------------------------------------- */
+/* 2.2. Navegador ---------------------------------------------------------------------- */
+/* 2.3. Encabezado y Secciones --------------------------------------------------------- */
+/* 2.4. Encabezado --------------------------------------------------------------------- */
+/* 2.5. Portafolio --------------------------------------------------------------------- */
+/* 2.6. Nosotros ----------------------------------------------------------------------- */
+/* 2.7. Contáctenos -------------------------------------------------------------------- */
+/* 2.8. Pie de página ------------------------------------------------------------------ */
+/* 3. LAYOUT: TABLET ------------------------------------------------------------------- */
+/* 4. LAYOUT: CELULAR ------------------------------------------------------------------ */
+/* 5. BIBLIOGRAFÍA --------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+
+/* ------------------------------------------------------------------------------------- */
+/* ---------------------------------- 1. COMPONENTES ----------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.1. General ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+
+/* Fuentes: Roboto y Yanone */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap');
+
+/* Página Principal */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+	scroll-behavior: smooth;
+}
+body{
+    background: #EEE;
+    font-family: 'Work Sans', sans-serif;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.2. Bordes ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Borde */
+.borde{
+    border: 1px solid #CCC;
+}
+
+/* Borde abajo*/
+.borde-abj{
+    border-bottom: 1px solid #CCC;
+}
+
+/* Borde redondeado arriba */
+.borde-redon-arr{
+    border-radius: 5px 5px 0 0;
+}
+
+/* Borde redondeado abajo */
+.borde-redon-abj{
+    border-radius: 0 0 5px 5px;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.3. Colores ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+
+/* Sena: Color Verde */
+.color-verde{
+    background: #39A900;
+}
+
+/* Sena: Color Azul Oscuro */
+.color-azul-osc{
+    background: #00324D;
+}
+
+/* Sena: Color Azul Claro */
+.color-azul-cla{
+    background: #82DEF0;
+}
+
+/* Sena: Color Gris */
+.color-gris-sena{
+    background: #343A40;
+}
+/* Color blanco */
+.color-blanco{
+    background: #FFF;
+}
+
+/* Color gris claro */
+.color-gris-cla{
+    background: #BBB;
+}
+
+/* Color gris oscuro */
+.color-gris-osc{
+    background: #777;
+}
+
+/* Color negro */
+.color-negro{
+    background: #000;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.4. Tarjeta ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+.tarjeta{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.5. Imágenes ----------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Imágenes */
+.imagen{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    padding: 5px;
+}
+.imagen img{    
+    width: auto;
+    height: 70%;
+    padding: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.6. Texto -------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Títulos */
+.titulo{
+    height: 75px;    
+    line-height: 75px;
+    text-align: center;    
+    color: #FFF;
+    font-family: 'Work Sans', sans-serif;
+    clear: both;
+}
+.titulo h1{
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Subtítulos */
+.subtitulo{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;    
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.subtitulo h2{
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Párrafos */
+.parrafo{    
+    font-size: 0.9em;
+    padding: 15px;
+    text-align: justify;
+    font-family: 'Roboto', sans-serif;    
+}
+.parrafo p{
+    margin-bottom: 15px;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.7. Botón Enlace ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Ver */
+.ver{
+    width: 100%;    
+    height: 50px;    
+    text-align: center;
+    padding: 5px;    
+}
+.ver a{    
+    display: block;
+    width: 50%;
+    height: 100%;
+    padding: 12px;
+    margin: auto;
+    text-decoration: none;
+    color: #FFF;
+    border-radius: 5px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.ver a:hover{
+    background: #00324D;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.8. Sonidos ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+
+.sonido{
+    width: 100%;
+    height: 70%;
+    padding: 10px;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.9. Vídeos ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+.video{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.10. Iframe ----------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+iframe{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 0;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.11. Iconografía ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Información Básica */
+.info-basica{
+    width: 100%;
+    height: 70%;    
+}
+
+/* Social Media */
+.social-media{
+    width: 100%;
+    height: 30%;
+    padding: 8px 80px;    
+}
+.social-media div{
+    width: 20%;
+    height: 100%;    
+    text-align: center;
+    float: left;
+    position: relative;
+    font-size: 2.5em;
+}
+.social-media a{
+    display: block;
+    position: absolute;
+    top: 8%;
+    left: 32%;
+    text-decoration: none;
+    color: #39A900;
+}
+.social-media a:hover{
+    color: #00324D;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.12. Navegación -------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Navegación */
+.navegador{
+    width: 100%;
+    height: 100%;    
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.2em;
+}
+
+.navegador i{    
+    margin-right: 5px;    
+    font-size: 0.8em;    
+}
+
+/* Nivel 1 */
+.navegador>ul{
+    list-style: none;
+    text-align: right;    
+}
+.navegador>ul>li{
+    width: 120px;
+    height: 100%;
+    line-height: 41px;
+    display: inline-block;
+    text-align: center;
+}
+.navegador ul li a{
+    padding-top: 7px;    
+    display: block;    
+    text-decoration: none;
+    color: #FFF;    
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+}
+.navegador ul li a:hover{
+    background: rgba(255, 255, 255, 0.3);
+}
+.navegador ul li:hover>ul{
+    display: block;
+}
+.navegador .m-ingreso{
+    width: 100%;
+}
+
+/* Nivel 2 */
+.navegador li ul{
+    width: 120px;
+    list-style: none;
+    position: absolute;
+    background: #39A900;    
+    display: none;
+}
+.navegador .m-ingreso ul{
+    width: 14.2%;
+    list-style: none;
+    position: absolute;
+    background: #00324D;    
+    display: none;
+}
+.navegador li ul li{
+    position: relative;    
+}
+
+/* Nivel 3 */
+.navegador li ul li ul{
+    left: 121px;
+    top: 3px;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.13. Retorno inicio ---------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+.boton-retorno{
+    position: fixed;
+	bottom: 15px;
+	right: 45px;
+	font-size: 2.5em;
+    color: #343A40;
+}
+.boton-retorno:hover{
+    color: #39A900;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.14. Migas de Pan ------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+.migas{
+    width: 100%;
+    padding: 10px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;    
+}
+.migas a,
+.migas p{
+    display: inline;
+    color: #FFF;
+}
+.migas a{
+    text-decoration: none;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.15. Contenido ------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+
+.contenido{
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 2.5%;
+    right: 2.5%;
+    top: 160px;
+    bottom: 70px;
+    padding: 10px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.16. Formularios ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Formulario */
+.form{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.form-subtitulo{        
+    width: 100%;
+    height: 50px;
+    line-height: 30px;
+    text-align: center;
+    padding: 10px;
+    background: #CCC;
+	border-radius: 4px 4px 0 0;
+    font-size: 1.2em;
+}
+.form-subtitulo h2{
+    line-height: 1.3;
+    display: inline-block;
+    vertical-align: middle;
+}
+.form-cuerpo{
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    right: 10px;
+    bottom: 60px;
+    background: #FFF;
+    padding: 15px 10px;    
+}
+.form-control{
+    width: 100%;
+    height: 45px;    
+    padding: 5px;    
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.label{    
+    padding: 5px;
+    width: 35%;
+    height: 100%;
+    line-height: 1;
+    vertical-align: middle;
+    float: left;
+    text-align: right;    
+    padding-right: 15px;
+    font-size: 1.4em;
+}
+.input{
+    padding: 5px;
+    width: 65%;
+    height: 100%;    
+    float: left;
+    border-radius: 4px;
+    border: 1px solid #999;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.4em;	
+}
+.form-control-textarea{
+    position: relative;    
+    width: 100%;
+    height: 65%;    
+    line-height: 40px;    
+    padding: 5px;    
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.form-control-textarea .label{
+    line-height: 1.4;
+}
+
+.textarea{
+    position: absolute;
+    right: 6px;
+    left: 35%;
+    top: 5px;
+    bottom: 10px;    
+    resize: none;
+    border: 1px solid #999;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.4em;
+    border-radius: 4px;
+    padding: 5px;
+    line-height: 1.4;	
+}
+.form-pie{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;    
+    height: 50px;
+    text-align: center;
+    padding: 5px;
+    background: #CCC;    
+	border-radius: 0 0 4px 4px;
+}
+.form-pie .boton{    
+    padding: 8px;
+    width: 50%;
+    height: 100%;
+    float: left;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.17. Tablas ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+
+.cont-tabla{
+    border-radius: 5px;
+    border: 1px solid #CCC;
+    height: 100%;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.table{	
+	width: 100%;	
+	border-collapse: collapse;
+}
+.table td, th{	
+  border: 1px solid #DDD;  
+  padding: 6px;
+  text-align: center;  
+}
+.table th{
+	background: #000;
+	color: #FFF;
+}
+.table tr:nth-child(even) {
+  background-color: #DDD;
+}
+.table .tabla-acciones{
+	padding: 10px;
+}
+.table .tabla-acciones a{	
+	text-decoration: none;
+	padding: 8px;
+	border-radius: 4px;		
+}
+.table .tabla-acciones .tabla-edit{
+	color: #EEE;
+	background: #39A900;
+}
+.table .tabla-acciones .tabla-delete{
+	color: #EEE;
+	background: #D34826;
+	margin-left: 5px;
+}
+.table .tabla-acciones .tabla-edit:hover,
+.table .tabla-acciones .tabla-delete:hover{
+    background: #00324D;   
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.18. Modal ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 1.19. Plugins ----------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+
+
+
+
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------------- 2. LAYOUT ------------------------------------- */
+/* ------------------------------- ESCRITORIO Y PORTATIL ------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 2.1. Contenedor --------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Contenedor */
+.contenedor{
+    width: 95%;
+    max-width: 1280px;
+    margin: auto;
+}
+
+/* Elementos contenedor */
+nav, 
+header,
+section,
+footer{
+    width: 100%;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* 2.2. Navegador ---------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Navegador */
+nav{    
+    height: 50px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* logo */
+.logo{
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+
+.logo .imagen img{    
+    width: auto;
+    height: 100%;
+}
+
+/* menú */
+.menu{
+    width: 65%;
+    height: 100%;
+    float: left;    
+}
+
+/* ingreso */
+.ingreso{
+    width: 15%;
+    height: 100%;
+    float: left;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 2.3. Encabezado y Secciones ----------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+header,
+section{
+    height: 81vh;    
+}
+
+/* Navegación: tope */
+.tope{
+	position: relative;    
+	bottom: 124px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* 2.4. Encabezado --------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+header{    
+    background-image: url(../img/header.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 2.5. Portafolio --------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Contenedor Portofolio */
+.portafolio{
+    height: auto;
+}
+
+/* Columnas */
+.port-col{
+    width: 33.33%;
+    height: 100%;
+    float: left;    
+}
+
+/* Imágenes */
+.port-col .imagen{    
+    height: 27vh;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 2.6. Nosotros ----------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Filas */
+.nos-fila{
+    width: 100%;
+    height: 33.33%;    
+}
+
+/* Columnas */
+.nos-col-izq,
+.nos-col-der{
+    width: 40%;
+    height: 100%;
+    float: left;
+}
+.nos-col-cnt{
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+
+/* Tarjeta */
+.nos-col-izq .tarjeta,
+.nos-col-der .tarjeta{
+    position: relative;    
+}
+.nos-col-izq .subtitulo,
+.nos-col-der .subtitulo{    
+    position: relative;    
+}
+.nos-col-izq .parrafo,
+.nos-col-der .parrafo{
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    right: 10px;
+    bottom: 60px;
+    line-height: 11vh;    
+}
+.nos-col-izq .parrafo p,
+.nos-col-der .parrafo p{
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+}
+.nos-col-izq .ver,
+.nos-col-der .ver{
+    width: auto;
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+.nos-col-izq .ver a{
+    margin-right: 0;
+}
+.nos-col-der .ver a{
+    margin-left: 0;
+}
+.nos-col-izq .subtitulo,
+.nos-col-izq .parrafo{
+    text-align: right;
+    padding-right: 15px;
+}
+.nos-col-der .subtitulo,
+.nos-col-der .parrafo{
+    text-align: left;
+    padding-left: 15px; 
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 2.7. Contáctenos -------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Columnas */
+.cont-col{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+/* Filas */
+.cont-fila-arr{
+    width: 100%;
+    height: 70%;
+}
+.cont-fila-abj{
+    width: 100%;
+    height: 30%;
+}
+
+/* Párrafo */
+.cont-fila-abj .parrafo{
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+.cont-fila-abj .parrafo p{
+    margin: 0;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* 2.8. Pie de Página ------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+
+footer{
+    height: 70px;
+}
+/* Párrafo */
+footer .parrafo{
+    text-align: center;
+    font-size: 0.7em;
+    color: #FFF;
+    font-weight: bold;
+}
+footer .parrafo p{
+    margin: 0;
+}
+
+/* Pie de página fijo */
+.footer-fijo{
+    position: absolute;
+    width: auto;
+    left: 2.5%;
+    right: 2.5%;
+    bottom: 2px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------------- 3. LAYOUT ------------------------------------- */
+/* -------------------------------------- TABLET --------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+
+
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------------- 4. LAYOUT ------------------------------------- */
+/* -------------------------------------- CELULAR -------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+
+
+/* ------------------------------------------------------------------------------------- */
+/* ---------------------------------- V. BIBLIOGRAFÍA ---------------------------------- */
+/* ------------------------------------------------------------------------------------- */

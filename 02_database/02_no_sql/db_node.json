@@ -1,0 +1,12 @@
+{
+  "_id": "65226b7afc13ae1a6d000001",
+  "name": "Juan",
+  "lastname": "Pérez",
+  "email": "juanperez@email.com",
+  "password": "$2a$10$...",
+  "phone": "3201234567",
+  "image": "uploads/juan.jpg",
+  "role": "admin",
+  "createdAt": "2025-10-08T09:00:00Z",
+  "updatedAt": "2025-10-08T09:00:00Z"
+}

@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-29T22:01:24.934Z",
+    "end": "2026-10-29T22:01:42.621Z",
+    "duration": 17687,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d3adf07c-c067-4ee1-9f4b-65f67e9476f0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\system\\users.system.cy.js",
+      "file": "cypress\\e2e\\system\\users.system.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "93dfeb24-782a-4d66-af17-0c151ff9518f",
+          "title": "Nivel 4: Pruebas de Sistema (E2E) - Flujos Completos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "ST-01: Debe permitir el login y redirigir al Dashboard",
+              "fullTitle": "Nivel 4: Pruebas de Sistema (E2E) - Flujos Completos ST-01: Debe permitir el login y redirigir al Dashboard",
+              "timedOut": null,
+              "duration": 4340,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.get('input[type=\"email\"]').type('admin@test.com');\ncy.get('input[type=\"password\"]').type('password123'); // 👈 Reemplace con su contraseña\ncy.get('button[type=\"submit\"]').click();\ncy.url().should('include', '/dashboard');\ncy.contains('Bienvenido,').should('be.visible');",
+              "err": {},
+              "uuid": "303087c7-c8b0-43d7-8455-b21049681e1b",
+              "parentUUID": "93dfeb24-782a-4d66-af17-0c151ff9518f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "ST-02: Debe redirigir al login si se intenta acceder al Dashboard sin estar autenticado",
+              "fullTitle": "Nivel 4: Pruebas de Sistema (E2E) - Flujos Completos ST-02: Debe redirigir al login si se intenta acceder al Dashboard sin estar autenticado",
+              "timedOut": null,
+              "duration": 673,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clearLocalStorage();\ncy.visit('/dashboard');\ncy.url().should('include', '/login');",
+              "err": {},
+              "uuid": "7fec7b3b-afe4-4515-8031-9e91a1dbf574",
+              "parentUUID": "93dfeb24-782a-4d66-af17-0c151ff9518f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "ST-03: Debe crear un usuario a través del formulario y mostrarlo en la tabla",
+              "fullTitle": "Nivel 4: Pruebas de Sistema (E2E) - Flujos Completos ST-03: Debe crear un usuario a través del formulario y mostrarlo en la tabla",
+              "timedOut": null,
+              "duration": 9303,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('admin@test.com', 'password123');\ncy.visit('/dashboard');\ncy.contains('button', 'Usuarios').click();\ncy.contains('button', '+ Nuevo Usuario').click();\nconst emailUnico = `cypress_${Date.now()}@test.com`;\ncy.get('input[name=\"name\"]').type('Usuario Creado por Cypress');\ncy.get('input[name=\"lastname\"]').type('ApellidoTest');\ncy.get('input[name=\"email\"]').type(emailUnico);\ncy.get('input[name=\"password\"]').type('password123');\ncy.get('input[name=\"confirmPassword\"]').type('password123');\ncy.contains('button', 'Crear').click();\ncy.contains('Operación completada exitosamente').should('be.visible');\ncy.get('table').should('contain', emailUnico);",
+              "err": {},
+              "uuid": "41decbeb-bda6-4e5c-86b6-0aa10e7bca11",
+              "parentUUID": "93dfeb24-782a-4d66-af17-0c151ff9518f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "ST-04: Debe eliminar un usuario de la tabla",
+              "fullTitle": "Nivel 4: Pruebas de Sistema (E2E) - Flujos Completos ST-04: Debe eliminar un usuario de la tabla",
+              "timedOut": null,
+              "duration": 2162,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('admin@test.com', 'password123');\ncy.visit('/dashboard');\ncy.contains('button', 'Usuarios').click();\nconst emailAEliminar = `eliminar_${Date.now()}@test.com`;\ncy.request({\n  method: 'POST',\n  url: 'http://10.1.195.62:3000/api/users/create',\n  // 👈 Asegúrese de usar su IP correcta\n  body: {\n    name: \"Para Borrar\",\n    lastname: \"Test\",\n    email: emailAEliminar,\n    password: \"123\"\n  }\n});\ncy.reload();\ncy.contains('button', 'Usuarios').click();\ncy.contains('tr', emailAEliminar).within(() => {\n  cy.get('button.btn-delete').click();\n});\ncy.on('window:confirm', () => true);\ncy.contains('Usuario eliminado exitosamente').should('be.visible');\ncy.get('table').should('not.contain', emailAEliminar);",
+              "err": {},
+              "uuid": "def36868-97e1-463f-92df-38797b123da3",
+              "parentUUID": "93dfeb24-782a-4d66-af17-0c151ff9518f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "ST-05: Debe mostrar un mensaje de error si se intenta hacer login con campos vacíos",
+              "fullTitle": "Nivel 4: Pruebas de Sistema (E2E) - Flujos Completos ST-05: Debe mostrar un mensaje de error si se intenta hacer login con campos vacíos",
+              "timedOut": null,
+              "duration": 795,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.get('button[type=\"submit\"]').click();\ncy.contains('Por favor complete todos los campos').should('be.visible');",
+              "err": {},
+              "uuid": "8b1a41d7-499a-4757-893a-f8325da31a32",
+              "parentUUID": "93dfeb24-782a-4d66-af17-0c151ff9518f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "303087c7-c8b0-43d7-8455-b21049681e1b",
+            "7fec7b3b-afe4-4515-8031-9e91a1dbf574",
+            "41decbeb-bda6-4e5c-86b6-0aa10e7bca11",
+            "def36868-97e1-463f-92df-38797b123da3",
+            "8b1a41d7-499a-4757-893a-f8325da31a32"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17273,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/html",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

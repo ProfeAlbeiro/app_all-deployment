@@ -1,0 +1,1310 @@
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------------------------------------------- ANGULAR PASO A PASO ------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- Bibliografía https://angular.dev/tutorials ----------------------------------------------------------------------------------------------------------|
+|--------------- https://www.youtube.com/playlist?list=PLrAw40DbN0l2XNbdFx0GvoRdzsyqTsdmP ---------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 01. Presentación y creación del proyecto ------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+--- 01.01. Instalar Visual Studio Code -> https://code.visualstudio.com/download
+
+--- 01.02. Instalar las siguientes extensiones en Visual Studio Code:
+
+             Auto Close Tag
+             Auto Complete Tag
+             Auto Rename Tag
+             Code Runner
+             HTML CSS Support
+             IntelliSense for CSS class names in HTML
+             JavaScript (ES6) code snippets
+             Live Server
+             Material Icon Theme
+             Path IntelliSense
+             Prettier - Code formatter
+
+             Angular Essentials (Version 18)
+             Angular Language Service
+             Angular Snippets (Version 18)
+             TypeScript Importer
+
+--- 01.03. Instalar node.js:
+
+             https://nodejs.org/es/
+
+--- 01.04. Abrir el 'PowerShell' como 'administrador' y escribir lo siguiente:
+
+             PS C:\Windows\system32> Get-ExecutionPolicy
+             PS C:\Windows\system32> Set-ExecutionPolicy Unrestricted
+
+             Cambio de directiva de ejecución
+             La directiva de ejecución te ayuda a protegerte de scripts en los que no confías.
+             Si cambias dicha directiva, podrías exponerte a los riesgos de seguridad descritos
+             en el tema de la Ayuda about_Execution_Policies en
+             https:/go.microsoft.com/fwlink/?LinkID=135170.
+             ¿Quieres cambiar la directiva de ejecución?
+             [S] Sí  [O] Sí a todo  [N] No  [T] No a todo  [U] Suspender  [?] Ayuda
+             (el valor predeterminado es "N"): S
+
+--- 01.05. Crear una carpeta para los proyectos de Angula en el computador (carpeta raíz):
+
+             'Escritorio/angular'
+
+--- 01.06. Abrir con 'Visual Studio Code' la carpeta creada, es decir,'angular'
+
+--- 01.07. Abrir una nueva terminal en vs code:
+
+             'Terminal / New Terminal' ó 'Ctrl + Shift + ñ'
+
+--- 01.08. Instalar Angular escribiendo desde la terminal:
+
+             PS C:\Users\ADMIN\Desktop\angular> npm install -g @angular/cli
+
+--- 01.09. Verificar las versiones de node.js y angular desde la terminal:
+
+             PS C:\Users\ADMIN\Desktop\angular> node --version
+             PS C:\Users\ADMIN\Desktop\angular> ng version
+
+--- 01.10. Crear un nuevo proyecto de Angular desde la terminal:
+
+             PS C:\Users\ADMIN\Desktop\angular> ng new app01
+
+--- 01.11. Seleccionar:
+
+             ❯ CSS             [ https://developer.mozilla.org/docs/Web/CSS                     ]
+             ? Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? (y/N) n
+
+--- 01.12. Ingresar a la carpeta 'app01' desde la terminal:
+
+             PS C:\Users\ADMIN\Desktop\angular> cd app01
+
+--- 01.13. Ejecutar el Servidor desde la terminal:
+
+             PS C:\Users\ADMIN\Desktop\angular\app01> ng serve -o
+
+             Would you like to share pseudonymous usage data about this project with the Angular Team
+             at Google under Google's Privacy Policy at https://policies.google.com/privacy. For more
+             details and how to change this setting, see https://angular.dev/cli/analytics.
+
+                 (y/N) y
+
+             Watch mode enabled. Watching for file changes...
+             NOTE: Raw file sizes do not reflect development server per-request transformations.
+             ➜  Local:   http://localhost:4200/
+             ➜  press h + enter to show help
+
+--- 01.14. Modificar código del archivo 'app01/src/app/app.component.ts', en la línea:
+
+            11.  title:number = 35;       // Para cambiar el título de bienvenida de la página inicial al número 35
+
+           Quedando así:
+
+             1.  import { Component } from '@angular/core';
+             2.  import { RouterOutlet } from '@angular/router';
+             3.
+             4.  @Component({
+             5.    selector: 'app-root',
+             6.    imports: [RouterOutlet],
+             7.    templateUrl: './app.component.html',
+             8.    styleUrl: './app.component.css'
+             9.  })
+            10.  export class AppComponent {
+            11.    title:number = 35;
+            12.  }
+
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 02. Componentes -------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+--- 02.01. Abrir una nueva terminal para ejecutar más comandos -> 'Terminal / New Terminal' ó 'Ctrl + Shift + ñ'
+
+--- 02.02. Ingresar nuevamente a la carpeta 'app01' desde la terminal:
+
+             PS C:\Users\ADMIN\Desktop\angular> cd app01
+
+--- 02.03. Crear en la carpeta 'app01/public' la carpeta 'assets' y cargar las siguientes imágenes:
+
+             https://github.com/ProfeAlbeiro/angular/blob/main/sources/assets/logo.svg
+             https://github.com/ProfeAlbeiro/angular/blob/main/sources/assets/location-pin.svg
+
+--- 02.04. Agregar los estilos globales al archivo 'app01/src/styles.css', desde el siguiente enlace:
+
+             https://github.com/ProfeAlbeiro/angular/blob/main/sources/css/styles.css
+
+--- 02.05. Modificar el código del archivo 'app01/src/app/app.component.html', de la siguiente forma:
+
+             1.  <main class="main">
+             2.    <header class="brand-home">
+             3.      <img class="brand-logo" src="assets/logo.svg" alt="logo" />
+             4.    </header>
+             5.    <section class="content">
+             6.
+             7.    </section>
+             8.  </main>
+             9.
+            10.  <router-outlet />
+
+--- 02.06. Crear el componente 'home' desde la terminal:
+
+             PS C:\Users\ADMIN\Desktop\angular\app01> ng generate component components/home
+
+--- 02.07. Agregar estilos al archivo 'app01/src/app/components/home/home.component.css', desde el siguiente enlace:
+
+             https://github.com/ProfeAlbeiro/angular/blob/main/sources/css/home.component.css
+
+--- 02.08. Modificar el código del archivo 'app01/src/app/app.component.ts' en la línea:
+
+             6.    imports: [RouterOutlet, HomeComponent],      // Asociar al componente 'HomeComponent' con '../components/home/home.component.ts'
+                                                                // en la línea '9.  export class HomeComponent'
+
+           NOTA: Si en la línea 3 no aparece la librería:
+
+             3.  import { HomeComponent } from './components/home/home.component';
+
+           Ubiquese al final de la palabra 'HomeComponent' de la línea 6, presione 'Ctrl + Space' y seleccione el mismo nombre; al final quedaría así:
+
+             1.  import { Component } from '@angular/core';
+             2.  import { RouterOutlet } from '@angular/router';
+             3.  import { HomeComponent } from './components/home/home.component';
+             4.
+             5.  @Component({
+             6.    selector: 'app-root',
+             7.    imports: [RouterOutlet, HomeComponent],
+             8.    templateUrl: './app.component.html',
+             9.    styleUrl: './app.component.css'
+            10.  })
+            11.  export class AppComponent {
+            12.    title:number = 35;
+            13.  }
+
+--- 02.09. Modificar el código del archivo 'app01/src/app/app.component.html' en la línea:
+
+             6.      <app-home></app-home>            // Llamar al selector 'app-home' del componente '../components/home/home.component.ts'
+                                                      // en la línea '4.  selector: 'app-home'':
+
+           Quedando así:
+
+             1.  <main class="main">
+             2.    <header class="brand-home">
+             3.      <img class="brand-logo" src="assets/logo.svg" alt="logo" />
+             4.    </header>
+             5.    <section class="content">
+             6.      <app-home></app-home>
+             7.    </section>
+             8.  </main>
+             9.
+            10.  <router-outlet />
+
+--- 02.10. Modificar el código del archivo 'app01/src/app/components/home/home.component.html', de la siguiente forma:
+
+             1.  <section>
+             2.    <form>
+             3.      <input type="text" placeholder="Filter by city" />
+             4.      <button type="button" class="primary">Search</button>
+             5.    </form>
+             6.    <section class="results">
+             7.
+             8.    </section>
+             9.  <section>
+
+--- 02.11. Crear el componente 'housingLocation' desde la terminal:
+
+             PS C:\Users\ADMIN\Desktop\angular\app01> ng g c components/housingLocation
+
+--- 02.12. Agregar estilos al archivo 'app01/src/app/components/housing-location/housing-location.component.css', desde el siguiente enlace:
+
+             https://github.com/ProfeAlbeiro/angular/blob/main/sources/css/housing-location.component.css
+
+--- 02.13. Modificar el código del archivo 'app01/src/app/components/home/home.component.ts' en la línea:
+
+             5.    imports: [HousingLocationComponent],       // Asociar al componente 'HousingLocationComponent' con
+                                                              // '../components/housing-location/housing-location.component.ts'
+                                                              // en la línea '9.  export class HousingLocationComponent'
+
+           Quedando así:
+
+             1.  import { Component } from '@angular/core';
+             2.  import { HousingLocationComponent } from '../housing-location/housing-location.component';
+             3.
+             4.  @Component({
+             5.    selector: 'app-home',
+             6.    imports: [HousingLocationComponent],
+             7.    templateUrl: './home.component.html',
+             8.    styleUrl: './home.component.css'
+             9.  })
+            10.  export class HomeComponent {
+            11.
+            12.  }
+
+--- 02.14. Modificar el código del archivo 'app01/src/app/components/home/home.component.html' en la línea:
+
+             7.        <app-housing-location></app-housing-location>  // Para llamar al selector 'app-housing-location' del componente
+                                                                      // '../components/housing-location/housing-location.component.ts'
+                                                                      // en la línea '4.  selector: 'app-housing-location''
+
+           Quedando así:
+
+             1.  <section>
+             2.    <form>
+             3.      <input type="text" placeholder="Filter by city" />
+             4.      <button type="button" class="primary">Search</button>
+             5.    </form>
+             6.    <section class="results">
+             7.        <app-housing-location></app-housing-location>
+             8.    </section>
+             9.  <section>
+
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 03. Interfaces --------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+--- 03.01. Crear una interface desde la terminal:
+
+             PS C:\Users\ADMIN\Desktop\angular\app01> ng generate interface components/housingLocation
+
+--- 03.02. Modificar código del archivo 'app01/src/app/components/housinglocation.ts' para definir los atributos, quedando así:
+
+             1.  export interface HousingLocation {
+             2.      id: number;
+             3.      name: string;
+             4.      city: string;
+             5.      state: string;
+             6.      photo: string;
+             7.      availableUnits: number;
+             8.      wifi: boolean;
+             9.      laundry: boolean;
+            10.  }
+
+--- 03.03. Modificar código del archivo 'app01/src/app/components/home/home.component.ts' en las líneas:
+
+            3.  import { HousingLocation } from '../housinglocation';                         // Importar la Interface 'HousingLocation'
+            12.    readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';   // Consumir una API Externa de imágenes
+            13.    housingLocation: HousingLocation = {}                                      // Crear una instancia de 'HousingLocation'
+
+           Quedando así:
+
+             1.  import { Component } from '@angular/core';
+             2.  import { HousingLocationComponent } from '../housing-location/housing-location.component';
+             3.  import { HousingLocation } from '../housinglocation';
+             4.
+             5.  @Component({
+             6.    selector: 'app-home',
+             7.    imports: [HousingLocationComponent],
+             8.    templateUrl: './home.component.html',
+             9.    styleUrl: './home.component.css'
+            10.  })
+            11.  export class HomeComponent {
+            12.    readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
+            13.    housingLocation: HousingLocation = {
+            14.      id: 999,
+            15.      name: 'Test Home',
+            16.      city: 'Test City',
+            17.      state: 'ST',
+            18.      photo: `${this.baseUrl}/example-house.jpg`,
+            19.      availableUnits: 99,
+            20.      wifi: true,
+            21.      laundry: false
+            22.    };
+            23.  }
+
+--- 03.04. Modificar código del archivo 'app01/src/app/components/housing-location/housing-location.component.ts' en las líneas:
+
+             1.  import { Component, Input } from '@angular/core';        // Importar el decorador @Input
+             2.  import { Housinglocation } from '../housinglocation';    // Importar la Interface
+            11.    @Input() housingLocation!: HousingLocation;            // Crear una instancia de 'HousingLocation', usar el decorador @Input()
+                                                                          // y heradar datos del componente Padre
+
+           Quedando así:
+
+             1.  import { Component, Input } from '@angular/core';
+             2.  import { Housinglocation } from '../housinglocation';
+             3.
+             4.  @Component({
+             5.    selector: 'app-housing-location',
+             6.    imports: [],
+             7.    templateUrl: './housing-location.component.html',
+             8.    styleUrl: './housing-location.component.css'
+             9.  })
+            10.  export class HousingLocationComponent {
+            11.    @Input() housingLocation!: HousingLocation;
+            12.  }
+
+--- 03.05. Modificar el código al archivo 'app01/src/app/components/home/home.component.html' en la línea:
+
+             7.      <app-housing-location [housingLocation]="housingLocation"></app-housing-location>  // Pasar los datos del Padre al Hijo
+
+           Quedando así:
+
+             1.  <section>
+             2.    <form>
+             3.      <input type="text" placeholder="Filter by city" />
+             4.      <button class="primary" type="button">Search</button>
+             5.    </form>
+             6.    <section class="results">
+             7.      <app-housing-location [housingLocation]="housingLocation"></app-housing-location>
+             8.    </section>
+             9.  <section>
+
+--- 03.06. Modificar código del archivo 'app01/src/app/components/housing-location/housing-location.component.html', de la siguiente forma:
+
+             1.  <section class="listing">
+             2.      <img
+             3.          class="listing-photo"
+             4.          [src]="housingLocation.photo"
+             5.          alt="Exterior photo of {{ housingLocation.name }}"
+             6.          crossorigin
+             7.      />
+             8.      <h2 class="listing-heading">{{ housingLocation.name }}</h2>
+             9.      <p class="listing-location">{{ housingLocation.city }}, {{ housingLocation.state }}</p>
+            10.  </section>
+
+--- 03.07. Modificar código del archivo 'app01/src/app/components/home/home.component.ts' en las líneas:
+
+             4.  import { CommonModule } from '@angular/common';        // Importar la funcionalidad de crear un arreglo de objetos
+             8.    imports: [CommonModule, HousingLocationComponent],   // Integrar la creación de un arreglo de objetos
+            14.    housinglocationList: Housinglocation []              // Crear una instancia de interfaz tipo arreglo de objetos
+
+           NOTA: En el siguiente enlace está el arreglo de objetos de ejemplo:
+                 https://github.com/ProfeAlbeiro/angular/blob/main/sources/js/housingLocationList.js
+                 Tenga en cuenta que se cambia el nombre de objeto 'housinglocation' al arreglo 'housingLocationList'
+
+           Quedando así:
+
+             1.  import { Component } from '@angular/core';
+             2.  import { HousingLocationComponent } from '../housing-location/housing-location.component';
+             3.  import { HousingLocation } from '../housingLocation';
+             4.  import { CommonModule } from '@angular/common';
+             5.
+             6.  @Component({
+             7.    selector: 'app-home',
+             8.    imports: [CommonModule, HousingLocationComponent],
+             9.    templateUrl: './home.component.html',
+            10.    styleUrl: './home.component.css'
+            11.  })
+            12.  export class HomeComponent {
+            13.    readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
+            14.    housinglocationList: Housinglocation [] = [
+            15.      {
+            16.        id: 1,
+            17.        name: 'Acme Fresh Start Housing',
+            18.        city: 'Chicago',
+            19.        state: 'IL',
+            20.        photo: `${this.baseUrl}/bernard-hermant-CLKGGwIBTaY-unsplash.jpg`,
+            21.        availableUnits: 4,
+            22.        wifi: true,
+            23.        laundry: true,
+            24.      },
+            25.      {
+            26.        id: 2,
+            27.        name: 'A113 Transitional Housing',
+            28.        city: 'Santa Monica',
+            29.        state: 'CA',
+            30.        photo: `${this.baseUrl}/brandon-griggs-wR11KBaB86U-unsplash.jpg`,
+            31.        availableUnits: 0,
+            32.        wifi: false,
+            33.        laundry: true,
+            34.      },
+            35.      {
+            36.        id: 3,
+            37.        name: 'Warm Beds Housing Support',
+            38.        city: 'Juneau',
+            39.        state: 'AK',
+            40.        photo: `${this.baseUrl}/i-do-nothing-but-love-lAyXdl1-Wmc-unsplash.jpg`,
+            41.        availableUnits: 1,
+            42.        wifi: false,
+            43.        laundry: false,
+            44.      },
+            45.      {
+            46.        id: 4,
+            47.        name: 'Homesteady Housing',
+            48.        city: 'Chicago',
+            49.        state: 'IL',
+            50.        photo: `${this.baseUrl}/ian-macdonald-W8z6aiwfi1E-unsplash.jpg`,
+            51.        availableUnits: 1,
+            52.        wifi: true,
+            53.        laundry: false,
+            54.      },
+            55.      {
+            56.        id: 5,
+            57.        name: 'Happy Homes Group',
+            58.        city: 'Gary',
+            59.        state: 'IN',
+            60.        photo: `${this.baseUrl}/krzysztof-hepner-978RAXoXnH4-unsplash.jpg`,
+            61.        availableUnits: 1,
+            62.        wifi: true,
+            63.        laundry: false,
+            64.      },
+            65.      {
+            66.        id: 6,
+            67.        name: 'Hopeful Apartment Group',
+            68.        city: 'Oakland',
+            69.        state: 'CA',
+            70.        photo: `${this.baseUrl}/r-architecture-JvQ0Q5IkeMM-unsplash.jpg`,
+            71.        availableUnits: 2,
+            72.        wifi: true,
+            73.        laundry: true,
+            74.      },
+            75.      {
+            76.        id: 7,
+            77.        name: 'Seriously Safe Towns',
+            78.        city: 'Oakland',
+            79.        state: 'CA',
+            80.        photo: `${this.baseUrl}/phil-hearing-IYfp2Ixe9nM-unsplash.jpg`,
+            81.        availableUnits: 5,
+            82.        wifi: true,
+            83.        laundry: true,
+            84.      },
+            85.      {
+            86.        id: 8,
+            87.        name: 'Hopeful Housing Solutions',
+            88.        city: 'Oakland',
+            89.        state: 'CA',
+            90.        photo: `${this.baseUrl}/r-architecture-GGupkreKwxA-unsplash.jpg`,
+            91.        availableUnits: 2,
+            92.        wifi: true,
+            93.        laundry: true,
+            94.      },
+            95.      {
+            96.        id: 9,
+            97.        name: 'Seriously Safe Towns',
+            98.        city: 'Oakland',
+            99.        state: 'CA',
+           100.        photo: `${this.baseUrl}/saru-robert-9rP3mxf8qWI-unsplash.jpg`,
+           101.        availableUnits: 10,
+           102.        wifi: false,
+           103.        laundry: false,
+           104.      },
+           105.      {
+           106.        id: 10,
+           107.        name: 'Capital Safe Towns',
+           108.        city: 'Portland',
+           109.        state: 'OR',
+           110.        photo: `${this.baseUrl}/webaliser-_TPTXZd9mOo-unsplash.jpg`,
+           111.        availableUnits: 6,
+           112.        wifi: true,
+           113.        laundry: true,
+           114.      },
+           115.    ];
+           116.  }
+
+--- 03.08. Modificar el código al archivo 'app01/src/app/components/home/home.component.html' en la línea:
+
+             8.              *ngFor="let housingLocation of housingLocationList"      // Incluir ciclo for (snippets) y recorrer el arreglo
+
+           Quedando así:
+
+             1.  <section>
+             2.      <form>
+             3.          <input type="text" placeholder="Filter by city" />
+             4.          <button class="primary" type="button">Search</button>
+             5.      </form>
+             6.      <section class="results">
+             7.          <app-housing-location
+             8.              *ngFor="let housingLocation of housingLocationList"
+             9.              [housingLocation]="housingLocation">
+            10.          </app-housing-location>
+            11.      </section>
+            12.  </section>
+
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 04. Services ----------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+--- 04.01. Crear un servicio desde la terminal (sin incluir el archivo *.spec.ts), que separe la lógica y los datos de los componentes y que; a su vez,
+           puedan ser utilizados por varios componentes:
+
+             PS C:\Users\ADMIN\Desktop\angular\app01> ng generate service components/housing --skip-tests
+
+--- 04.02. Cortar el código del archivo 'app01/src/app/components/home/home.component.ts', desde la línea 13 hasta la 115, quedando así:
+
+             1.  import { Component } from '@angular/core';
+             2.  import { HousingLocationComponent } from '../housing-location/housing-location.component';
+             3.  import { Housinglocation } from '../housinglocation';
+             4.  import { CommonModule } from '@angular/common';
+             5.
+             6.  @Component({
+             7.    selector: 'app-home',
+             8.    imports: [CommonModule, HousingLocationComponent],
+             9.    templateUrl: './home.component.html',
+            10.    styleUrl: './home.component.css'
+            11.  })
+            12.  export class HomeComponent {
+            13.
+            14.  }
+
+--- 04.03. Pegar el código cortado en el paso anterior en el archivo 'app01/src/app/components/housing.service.ts' en la línea 9 y en la línea:
+
+             2.  import { HousingLocation } from './housing-location';        // Importar la Interface 'HousingLocation'
+
+           Quedando así:
+
+             1.  import { Injectable } from '@angular/core';
+             2.  import { HousingLocation } from './housing-location';
+             3.
+             4.  @Injectable({
+             5.    providedIn: 'root'
+             6.  })
+             7.  export class HousingService {
+             8.
+             9.    constructor() { }
+            10.    readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
+            11.    housinglocationList: Housinglocation [] = [
+            12.      {
+            13.        id: 1,
+            14.        name: 'Acme Fresh Start Housing',
+            15.        city: 'Chicago',
+            16.        state: 'IL',
+            17.        photo: `${this.baseUrl}/bernard-hermant-CLKGGwIBTaY-unsplash.jpg`,
+            18.        availableUnits: 4,
+            19.        wifi: true,
+            20.        laundry: true,
+            21.      },
+            22.      {
+            23.        id: 2,
+            24.        name: 'A113 Transitional Housing',
+            25.        city: 'Santa Monica',
+            26.        state: 'CA',
+            27.        photo: `${this.baseUrl}/brandon-griggs-wR11KBaB86U-unsplash.jpg`,
+            28.        availableUnits: 0,
+            29.        wifi: false,
+            30.        laundry: true,
+            31.      },
+            32.      {
+            33.        id: 3,
+            34.        name: 'Warm Beds Housing Support',
+            35.        city: 'Juneau',
+            36.        state: 'AK',
+            37.        photo: `${this.baseUrl}/i-do-nothing-but-love-lAyXdl1-Wmc-unsplash.jpg`,
+            38.        availableUnits: 1,
+            39.        wifi: false,
+            40.        laundry: false,
+            41.      },
+            42.      {
+            43.        id: 4,
+            44.        name: 'Homesteady Housing',
+            45.        city: 'Chicago',
+            46.        state: 'IL',
+            47.        photo: `${this.baseUrl}/ian-macdonald-W8z6aiwfi1E-unsplash.jpg`,
+            48.        availableUnits: 1,
+            49.        wifi: true,
+            50.        laundry: false,
+            51.      },
+            52.      {
+            53.        id: 5,
+            54.        name: 'Happy Homes Group',
+            55.        city: 'Gary',
+            56.        state: 'IN',
+            57.        photo: `${this.baseUrl}/krzysztof-hepner-978RAXoXnH4-unsplash.jpg`,
+            58.        availableUnits: 1,
+            59.        wifi: true,
+            60.        laundry: false,
+            61.      },
+            62.      {
+            63.        id: 6,
+            64.        name: 'Hopeful Apartment Group',
+            65.        city: 'Oakland',
+            66.        state: 'CA',
+            67.        photo: `${this.baseUrl}/r-architecture-JvQ0Q5IkeMM-unsplash.jpg`,
+            68.        availableUnits: 2,
+            69.        wifi: true,
+            70.        laundry: true,
+            71.      },
+            72.      {
+            73.        id: 7,
+            74.        name: 'Seriously Safe Towns',
+            75.        city: 'Oakland',
+            76.        state: 'CA',
+            77.        photo: `${this.baseUrl}/phil-hearing-IYfp2Ixe9nM-unsplash.jpg`,
+            78.        availableUnits: 5,
+            79.        wifi: true,
+            80.        laundry: true,
+            81.      },
+            82.      {
+            83.        id: 8,
+            84.        name: 'Hopeful Housing Solutions',
+            85.        city: 'Oakland',
+            86.        state: 'CA',
+            87.        photo: `${this.baseUrl}/r-architecture-GGupkreKwxA-unsplash.jpg`,
+            88.        availableUnits: 2,
+            89.        wifi: true,
+            90.        laundry: true,
+            91.      },
+            92.      {
+            93.        id: 9,
+            94.        name: 'Seriously Safe Towns',
+            95.        city: 'Oakland',
+            96.        state: 'CA',
+            97.        photo: `${this.baseUrl}/saru-robert-9rP3mxf8qWI-unsplash.jpg`,
+            98.        availableUnits: 10,
+            99.        wifi: false,
+           100.        laundry: false,
+           101.      },
+           102.      {
+           103.        id: 10,
+           104.        name: 'Capital Safe Towns',
+           105.        city: 'Portland',
+           106.        state: 'OR',
+           107.        photo: `${this.baseUrl}/webaliser-_TPTXZd9mOo-unsplash.jpg`,
+           108.        availableUnits: 6,
+           109.        wifi: true,
+           110.        laundry: true,
+           111.      },
+           112.    ];
+           113.  }
+
+--- 04.04. Modificar el código del archivo 'app01/src/app/components/home/home.component.ts' en las líneas:
+
+             1.  import { Component, inject } from '@angular/core';           // Importar la función de inyección de código 'inject'
+            13.    housingLocationList: HousingLocation[] = [];               // Crear una instancia de la Interfaz 'HousingLocation'
+             5.  import { HousingService } from '../housing.service';         // Importar el Servicio
+            15.    housingService: HousingService = inject(HousingService);   // Crear una instancia del servicio e inyecarlo
+
+           Quedando así:
+
+             1.  import { Component, inject } from '@angular/core';
+             2.  import { HousingLocationComponent } from '../housing-location/housing-location.component';
+             3.  import { Housinglocation } from '../housinglocation';
+             4.  import { CommonModule } from '@angular/common';
+             5.  import { HousingService } from '../housing.service';
+             6.
+             7.  @Component({
+             8.    selector: 'app-home',
+             9.    imports: [CommonModule, HousingLocationComponent],
+            10.    templateUrl: './home.component.html',
+            11.    styleUrl: './home.component.css'
+            12.  })
+            13.  export class HomeComponent {
+            14.    housingLocationList: HousingLocation[] = [];
+            15.    housingService: HousingService = inject(HousingService);
+            16.  }
+
+--- 04.05. Modificar el código del archivo 'app01/src/app/components/housing.service.ts', en las líneas:
+
+           114.    getAllHousingLocations(): HousingLocation[] {}                       // Crear función que obtenga todos los objetos del arreglo
+           118.    getHousingLocationById(id:number): HousingLocation | undefined {}    // Crear un función que obtenga un solo objeto por filtro
+
+           Quedando así:
+
+             1.  import { Injectable } from '@angular/core';
+             2.  import { HousingLocation } from './housing-location';
+             3.
+             4.  @Injectable({
+             5.    providedIn: 'root'
+             6.  })
+             7.  export class HousingService {
+             8.
+             9.    constructor() { }
+            10.    readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
+            11.>   housinglocationList: Housinglocation [] = [
+           112.    ];
+           113.
+           114.    getAllHousingLocations(): HousingLocation[] {
+           115.      return this.housingLocationList;
+           116.    }
+           117.
+           118.    getHousingLocationById(id:number): HousingLocation | undefined {
+           119.      return this.housingLocationList.find((housingLocation) => housingLocation.id === id);
+           120.    }
+           121.
+           122.  }
+
+--- 04.06. Modificar el código del archivo 'app01/src/app/components/home/home.component.ts' en las líneas:
+
+            17.    constructor(){                                                               // Apertura del constructor
+            18.      this.housingLocationList = this.housingService.getAllHousingLocations();   // Crear instancia del servicio y llamar función
+            19.    }                                                                            // Cierre del constructor
+
+           Quedando así:
+
+             1.  import { Component, inject } from '@angular/core';
+             2.  import { HousingLocationComponent } from '../housing-location/housing-location.component';
+             3.  import { Housinglocation } from '../housinglocation';
+             4.  import { CommonModule } from '@angular/common';
+             5.  import { HousingService } from '../housing.service';
+             6.
+             7.  @Component({
+             8.    selector: 'app-home',
+             9.    imports: [CommonModule, HousingLocationComponent],
+            10.    templateUrl: './home.component.html',
+            11.    styleUrl: './home.component.css'
+            12.  })
+            13.  export class HomeComponent {
+            14.    housingLocationList: HousingLocation[] = [];
+            15.    housingService: HousingService = inject(HousingService);
+            16.
+            17.    constructor(){
+            18.      this.housingLocationList = this.housingService.getAllHousingLocations();
+            19.    }
+            20.
+            21.  }
+
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 05. Routing -----------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+--- 05.01. Crear el componente 'details' desde la terminal:
+
+             PS C:\Users\ADMIN\Desktop\angular\app01> ng g c components/details
+
+--- 05.02. Agregar estilos al archivo 'app01/src/app/components/details/details.component.css', desde el siguiente enlace:
+
+             https://github.com/ProfeAlbeiro/angular/blob/main/sources/css/details.component.css
+
+--- 05.03. Modificar el código del archivo 'app01/src/main.ts' en las líneas:
+
+             4.  import { routes } from './app/app.routes';           // Importar la función de rutas
+             5.  import { provideRouter } from '@angular/router';     // Importar archivo de inyección de dependencias
+             7.  bootstrapApplication(AppComponent,{})                // Implementar dependencias y rutas
+
+           Quedando así:
+
+             1.  import { bootstrapApplication } from '@angular/platform-browser';
+             2.  import { AppComponent } from './app/app.component';
+             3.  import { routes } from './app/app.routes';
+             4.  import { provideRouter } from '@angular/router';
+             5.
+             6.  bootstrapApplication(AppComponent,{
+             7.    providers: [provideRouter(routes)]
+             8.  }).catch((err) => console.error(err));
+
+--- 05.04. Modificar el código del archivo 'app01/src/app/app.component.ts' en las líneas:
+
+             4.  import { RouterModule } from '@angular/router';      // Importar el módulo 'RouterModule' para enrutar
+             8.    imports: [RouterOutlet, RouterModule],             // Incorporar 'RouterModule' para usar
+            12.    title:string = 'homes';                            // Cambiar el nombre de inicio a 'homes'
+
+           Quedando así:
+
+             1.  import { Component } from '@angular/core';
+             2.  import { RouterOutlet } from '@angular/router';
+             3.  import { RouterModule } from '@angular/router';
+             4.
+             5.  @Component({
+             6.    selector: 'app-root',
+             7.    imports: [RouterOutlet, RouterModule],
+             8.    templateUrl: './app.component.html',
+             9.    styleUrl: './app.component.css'
+            10.  })
+            11.  export class AppComponent {
+            12.    title:string = 'homes';
+            13.  }
+
+--- 05.05. Modificar el código del archivo 'app01/src/app/app.component.html' en las líneas:
+
+             2.    <a routerLink="/">                     // Enrutar a los componentes
+             8.      <router-outlet></router-outlet>      // Habilitar el selector de rutas
+
+           Quedando así:
+
+             1.  <main class="main">
+             2.    <a routerLink="/">
+             3.      <header class="brand-home">
+             4.        <img  class="brand-logo" src="assets/logo.svg" alt="logo" />
+             5.      </header>
+             6.    </a>
+             7.    <section class="content">
+             8.      <router-outlet></router-outlet>
+             9.    </section>
+            10.  </main>
+
+--- 05.06. Modificar el código del archivo 'app01/src/app/app.routes.ts' en las líneas:
+
+             2.  import { HomeComponent } from './components/home/home.component';            // Importar el componente 'HomeComponent'
+             3.  import { DetailsComponent } from './components/details/details.component';   // Importar el componente 'DetailsComponent'
+             5.  export const routes: Routes = []                                             // Crear un arreglo de las rutas
+
+           Quedando así:
+
+             1.  import { Routes } from '@angular/router';
+             2.  import { HomeComponent } from './components/home/home.component';
+             3.  import { DetailsComponent } from './components/details/details.component';
+             4.
+             5.  export const routes: Routes = [
+             6.      {path:'', component: HomeComponent, title:'Home Page'},
+             7.      {path:'details/:id', component: DetailsComponent, title:'Home Details'},
+             8.  ];
+
+--- 05.07. Modificar código del archivo 'app01/src/app/components/housing-location/housing-location.component.ts' en las líneas:
+
+             3.  import { RouterModule } from '@angular/router';    // Importar la función de 'RouterModule' para enrutar
+             4.  import { CommonModule } from '@angular/common';    // Importar la función de 'CommonModule' para compartir con 'home'
+             7.    imports: [RouterModule, CommonModule],           // Integrar 'RouterModule' y 'CommonModule' al componente
+
+           Quedando así:
+
+             1.  import { Component, Input } from '@angular/core';
+             2.  import { HousingLocation } from '../housing-location';
+             3.  import { RouterModule } from '@angular/router';
+             4.  import { CommonModule } from '@angular/common';
+             5. 
+             6.  @Component({
+             7.    selector: 'app-housing-location',
+             8.    imports: [RouterModule, CommonModule],
+             9.    templateUrl: './housing-location.component.html',
+            10.    styleUrl: './housing-location.component.css'
+            11.  })
+            12.  export class HousingLocationComponent {
+            13.    @Input() housingLocation!: HousingLocation;
+            14.  }
+
+--- 05.08. Modificar código del archivo 'app01/src/app/components/housing-location/housing-location.component.html' en la línea:
+
+            10.      <a [routerLink]="['/details', housingLocation.id]" routerLinkActive="router-link-active" >Learn More</a> // Agregar 'routerLink'
+
+           Quedando así:
+
+             1.  <section class="listing">
+             2.      <img
+             3.          class="listing-photo"
+             4.          [src]="housingLocation.photo"
+             5.          alt="Exterior photo of {{ housingLocation.name }}"
+             6.          crossorigin
+             7.      />
+             8.      <h2 class="listing-heading">{{ housingLocation.name }}</h2>
+             9.      <p class="listing-location">{{ housingLocation.city }}, {{ housingLocation.state }}</p>
+            10.      <a [routerLink]="['/details', housingLocation.id]" routerLinkActive="router-link-active" >Learn More</a>
+            11.  </section>
+
+--- 05.09. Modificar código del archivo 'app01/src/app/components/details/details.component.ts' en las líneas:
+
+             1.  import { Component, inject } from '@angular/core';     // Importar 'inject' para introducir código
+             2.  import { CommonModule } from '@angular/common';        // Importar 'CommonModule' para un arreglo a partir de la Interfaz
+             3.  import { ActivatedRoute } from '@angular/router';      // Importar 'ActivatedRoute' para determinar las rutas activas
+             4.  import { HousingService } from '../housing.service';   // Importar 'HousingService' para llamar al servicio
+             5.  import { HousingLocation } from '../housing-location'; // Importar 'HousingLocation' para llamar la Interfaz
+             9.    imports: [CommonModule],                             // Incluir en el componente el arreglo de objetos
+            13.  export class DetailsComponent {}                       // Incluir inyección, arreglos, rutas, servicios e interfaz
+
+           Quedando así:
+
+             1.  import { Component, inject } from '@angular/core';
+             2.  import { CommonModule } from '@angular/common';
+             3.  import { ActivatedRoute } from '@angular/router';
+             4.  import { HousingService } from '../housing.service';
+             5.  import { HousingLocation } from '../housing-location';
+             6.
+             7.  @Component({
+             8.    selector: 'app-details',
+             9.    imports: [CommonModule],
+            10.    templateUrl: './details.component.html',
+            11.    styleUrl: './details.component.css'
+            12.  })
+            13.  export class DetailsComponent {
+            14.    route: ActivatedRoute = inject(ActivatedRoute);
+            15.    housingService = inject(HousingService);
+            16.    housingLocation: HousingLocation | undefined;
+            17.
+            18.    constructor(){
+            19.      const housingLocationId = Number(this.route.snapshot.params['id']);
+            20.      this.housingLocation = this.housingService.getHousingLocationById(housingLocationId)
+            21.    }
+            22.  }
+
+--- 05.10. Modificar código del archivo 'app01/src/app/components/details/details.component.html', quedando así:
+
+             1.  <article>
+             2.      <img
+             3.          class="listing-photo"
+             4.          [src]="housingLocation?.photo"
+             5.          alt="Exterior photo of {{ housingLocation?.name }}"
+             6.          crossorigin
+             7.      />
+             8.      <section class="listing-description">
+             9.          <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
+            10.          <p class="listing-location">{{ housingLocation?.city }}, {{ housingLocation?.state }}</p>
+            11.      </section>
+            12.      <section class="listing-features">
+            13.          <h2 class="section-heading">About this housing location</h2>
+            14.          <ul>
+            15.              <li>Units available: {{ housingLocation?.availableUnits }}</li>
+            16.              <li>Does this location have wifi: {{ housingLocation?.wifi }}</li>
+            17.              <li>Does this location have laundry: {{ housingLocation?.laundry }}</li>
+            18.          </ul>
+            19.      </section>
+            20.  </article>
+
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 06. Reactive Forms ----------------------------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+--- 06.01. Modificar el código del archivo 'app01/src/app/components/housing.service.ts' desde la línea:
+
+           122.    submitApplication(firstName:string, lastName:string, email:string){}     // Método para enviar datos desde el formulario
+
+           Quedando así:
+
+             1.  import { Injectable } from '@angular/core';
+             2.  import { HousingLocation } from './housing-location';
+             3.
+             4.  @Injectable({
+             5.    providedIn: 'root'
+             6.  })
+             7.  export class HousingService {
+             8.
+             9.    constructor() { }
+            10.    readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
+            11.>   housinglocationList: Housinglocation [] = [
+           112.    ];
+           113.
+           114.    getAllHousingLocations(): HousingLocation[] {
+           115.      return this.housingLocationList;
+           116.    }
+           117.
+           118.    getHousingLocationById(id:number): HousingLocation | undefined {
+           119.      return this.housingLocationList.find((housingLocation) => housingLocation.id === id);
+           120.    }
+           121.
+           122.    submitApplication(firstName:string, lastName:string, email:string){
+           123.      console.log(`FirstName: ${firstName} - LastName: ${lastName} - Email: ${email}`);
+           124.    }
+           125.
+           126.  }
+
+--- 06.02. Modificar código del archivo 'app01/src/app/components/details/details.component.ts' en las líneas:
+
+             6.  import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';    // Importar el Formulario, sus controles y Reactividad
+            10.    imports: [CommonModule, ReactiveFormsModule],                                  // Incluir la importación del Formulario Reactivo
+            24.    formAngular = new FormGroup({});                                               // Crear el Formulario Reactivo
+            30.    onSubmit(){}                                                                   // Enviar los datos del Formulario
+
+           Quedando así:
+
+             1.  import { Component, inject } from '@angular/core';
+             2.  import { ActivatedRoute } from '@angular/router';
+             3.  import { HousingService } from '../housing.service';
+             4.  import { HousingLocation } from '../housing-location';
+             5.  import { CommonModule } from '@angular/common';
+             6.  import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+             7.
+             8.  @Component({
+             9.    selector: 'app-details',
+            10.    imports: [CommonModule, ReactiveFormsModule],
+            11.    templateUrl: './details.component.html',
+            12.    styleUrl: './details.component.css'
+            13.  })
+            14.  export class DetailsComponent {
+            15.    route: ActivatedRoute = inject(ActivatedRoute);
+            16.    housingService = inject(HousingService);
+            17.    housingLocation: HousingLocation | undefined;
+            18.
+            19.    constructor(){
+            20.      const housingLocationId = Number(this.route.snapshot.params['id']);
+            21.      this.housingLocation = this.housingService.getHousingLocationById(housingLocationId)
+            22.    }
+            23.
+            24.    formAngular = new FormGroup({
+            25.      firstName: new FormControl(''),
+            26.      lastName: new FormControl(''),
+            27.      email: new FormControl(''),
+            28.    });
+            29.
+            30.    onSubmit(){
+            31.      this.housingService.submitApplication(
+            32.        this.formAngular.value.firstName ?? '',
+            33.        this.formAngular.value.lastName ?? '',
+            34.        this.formAngular.value.email ?? '',
+            35.      )
+            36.    }
+            37.  }
+
+--- 06.03. Modificar código del archivo 'app01/src/app/components/details/details.component.html' desde las líneas:
+
+            20.      <section>                                                    // Apertura de sección del formulario
+            21.          <h2>Apply Now to live here</h2>                          // Título del Formulario
+            22.          <form [formGroup]="formAngular" (submit)="onSubmit()">   // Inicio del Formulario e implementación del método de envío
+
+           Quedando así:
+
+             1.  <article>
+             2.      <img
+             3.          class="listing-photo"
+             4.          [src]="housingLocation?.photo"
+             5.          alt="Exterior photo of {{ housingLocation?.name }}"
+             6.          crossorigin
+             7.      />
+             8.      <section class="listing-description">
+             9.          <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
+            10.          <p class="listing-location">{{ housingLocation?.city }}, {{ housingLocation?.state }}</p>
+            11.      </section>
+            12.      <section class="listing-features">
+            13.          <h2 class="section-heading">About this housing location</h2>
+            14.          <ul>
+            15.              <li>Units available: {{ housingLocation?.availableUnits }}</li>
+            16.              <li>Does this location have wifi: {{ housingLocation?.wifi }}</li>
+            17.              <li>Does this location have laundry: {{ housingLocation?.laundry }}</li>
+            18.          </ul>
+            19.      </section>
+            20.      <section>
+            21.          <h2>Apply now to live here</h2>
+            22.          <form [formGroup]="formAngular" (submit)="onSubmit()">
+            23.              <label for="first-name">First Name</label>
+            24.              <input type="text" id="first-name" formControlName="firstName" />
+            25.              <label for="last-name">Last Name</label>
+            26.              <input type="text" id="last-name" formControlName="lastName" />
+            27.              <label for="email">Email</label>
+            28.              <input type="email" id="email" formControlName="email" />
+            29.              <button type="submit" class="primary">Apply now </button>
+            30.          </form>
+            31.      </section>
+            32.  </article>
+
+--- 06.04. Modificar el código del archivo 'app01/src/app/components/home/home.component.ts' en las líneas:
+
+            16.    filteredLocationList: HousingLocation[] = [];              // Crear una instancia de la Interfaz para filtrar el arreglo de objetos
+            20.      this.filteredLocationList = this.housingLocationList     // Incluir la creación del objeto desde el constructor
+            23.    filterResults(text:string){}                               // Mostrar toda la lista o solo un elemento
+
+           Quedando así:
+
+             1.  import { Component, inject } from '@angular/core';
+             2.  import { HousingLocationComponent } from '../housing-location/housing-location.component';
+             3.  import { HousingLocation } from '../housing-location';
+             4.  import { CommonModule } from '@angular/common';
+             5.  import { HousingService } from '../housing.service';
+             6.
+             7.  @Component({
+             8.    selector: 'app-home',
+             9.    imports: [CommonModule, HousingLocationComponent],
+            10.    templateUrl: './home.component.html',
+            11.    styleUrl: './home.component.css'
+            12.  })
+            13.  export class HomeComponent {
+            14.    housingLocationList: HousingLocation[] = [];
+            15.    housingService: HousingService = inject(HousingService);
+            16.    filteredLocationList: HousingLocation[] = [];
+            17.
+            18.    constructor(){
+            19.      this.housingLocationList = this.housingService.getAllHousingLocations();
+            20.      this.filteredLocationList = this.housingLocationList;
+            21.    }
+            22.
+            23.    filterResults(text:string){
+            24.      if (!text) {
+            25.        this.filteredLocationList = this.housingLocationList;
+            26.        return;
+            27.      }
+            28.      this.filteredLocationList = this.housingLocationList.filter((housingLocation) =>
+            29.        housingLocation?.city.toLowerCase().includes(text.toLowerCase())
+            30.      )
+            31.    }
+            32.
+            33.  }
+
+--- 06.05. Modificar el código al archivo 'app01/src/app/components/home/home.component.html' en las líneas
+
+             3.          <input type="text" placeholder="Filter by city" #filter/>                                    // Incluir atributo de filtrado
+             4.          <button type="button" class="primary" (click)="filterResults(filter.value)">Search</button>  // Incluir método filtrado
+             8.          *ngFor="let housingLocation of filteredLocationList"                                         // Recorrer el arreglo
+
+           Quedando así:
+
+             1.  <section>
+             2.      <form>
+             3.          <input type="text" placeholder="Filter by city" #filter/>
+             4.          <button type="button" class="primary" (click)="filterResults(filter.value)">Search</button>
+             5.      </form>
+             6.      <section class="results">
+             7.          <app-housing-location
+             8.          *ngFor="let housingLocation of filteredLocationList"
+             9.              [housingLocation]="housingLocation">
+            10.          </app-housing-location>
+            11.      </section>
+            12.  </section>
+
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 07. Http Fetch y Json Server ------------------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+--- 07.01. Crear una carpeta denominada 'jsonserver' fuera del proyecto, ejemplo 'angular/jsonserver':
+
+--- 07.02. Abrir una nueva terminal en vs code -> 'Terminal / New Terminal' ó 'Ctrl + Shift + ñ'
+
+--- 07.03. Ingresar a la carpeta 'jsonserver' desde la terminal:
+
+             PS C:\Users\ADMIN\Desktop\angular> cd jsonserver
+
+--- 07.04. Inicializar un proyecto de node.js desde la terminal:
+
+             PS C:\Users\ADMIN\Desktop\angular\sources\jsonserver> npm init -y
+
+--- 07.05. Agregar la base de datos 'db.json' a la carpeta 'jsonserver' desde el siguiente enlace:
+
+             https://github.com/ProfeAlbeiro/angular/blob/main/sources/db/db.json
+
+--- 07.06. Instalar 'jsonserver' desde la terminal:
+
+             PS C:\Users\ADMIN\Desktop\angular\sources\jsonserver> npm install json-server
+
+--- 07.07. Ejecutar el servidor 'jsonserver' desde la terminal para asociarlo a la base de datos:
+
+             PS C:\Users\ADMIN\Desktop\angular\sources\jsonserver> npx json-server db.json
+
+--- 07.08. Al seleccionar la terminal en la parte inferior derecha y presionando F2, se puede cambiar el nombre de las terminales
+
+--- 07.09. Al dar clic derecho sobre algún servidor ubicado en la parte inferior derecha y seleccionando la opción 'Change Color...', se puede cambiar
+           el color de la terminal
+
+--- 07.10. Modificar el código del archivo 'app01/src/app/components/housing.service.ts' eliminando desde las líneas 10 a la 112 y en las líneas:
+
+            11.    url = 'http://localhost:3000/locations';                                           // Incluir API para Peticiones HTTP
+            13.    async getAllHousingLocation(): Promise<HousingLocation[]> {}                       // Modificar el método que trae todos los objetos
+            18.    async getHousingLocationById(id:number): Promise<HousingLocation | undefined> {}   // Modificar el método que trae un objeto
+
+           Quedando así:
+
+             1.  import { Injectable } from '@angular/core';
+             2.  import { HousingLocation } from './housing-location';
+             3.
+             4.  @Injectable({
+             5.    providedIn: 'root'
+             6.  })
+             7.  export class HousingService {
+             8.
+             9.    constructor() { }
+            10.
+            11.    url = 'http://localhost:3000/locations';
+            12.
+            13.    async getAllHousingLocation(): Promise<HousingLocation[]> {
+            14.      const data = await fetch(this.url);
+            15.      return (await data.json());
+            16.    }
+            17.
+            18.    async getHousingLocationById(id:number): Promise<HousingLocation | undefined> {
+            19.      const data = await fetch(`${this.url}/${id}`);
+            20.      return (await data.json()) ?? {};
+            21.    }
+            22.
+            23.    submitApplication(firstName:string, lastName:string, email:string){
+            24.      console.log(`FirstName: ${firstName} - LastName: ${lastName} - Email: ${email}`);
+            25.    }
+            26.
+            27.  }
+
+--- 07.11. Modificar el código del archivo 'app01/src/app/components/home/home.component.ts' desde la línea:
+
+            19.      this.housingService.getAllHousingLocation().then((housingLocationList: HousingLocation[]) => {}) // Implementar métodos
+
+           Quedando así:
+
+             1.  import { Component, inject } from '@angular/core';
+             2.  import { HousingLocationComponent } from '../housing-location/housing-location.component';
+             3.  import { HousingLocation } from '../housing-location';
+             4.  import { CommonModule } from '@angular/common';
+             5.  import { HousingService } from '../housing.service';
+             6.
+             7.  @Component({
+             8.    selector: 'app-home',
+             9.    imports: [CommonModule, HousingLocationComponent],
+            10.    templateUrl: './home.component.html',
+            11.    styleUrl: './home.component.css'
+            12.  })
+            13.  export class HomeComponent {
+            14.    housingLocationList: HousingLocation[] = [];
+            15.    housingService: HousingService = inject(HousingService);
+            16.    filteredLocationList: HousingLocation[] = [];
+            17.
+            18.    constructor(){
+            19.      this.housingService.getAllHousingLocation().then((housingLocationList: HousingLocation[]) => {
+            20.        this.housingLocationList = housingLocationList;
+            21.        this.filteredLocationList = housingLocationList;
+            22.      })
+            23.    }
+            24.
+            25.    filterResults(text:string){
+            26.      if (!text) {
+            27.        this.filteredLocationList = this.housingLocationList;
+            28.        return;
+            29.      }
+            30.      this.filteredLocationList = this.housingLocationList.filter((housingLocation) =>
+            31.        housingLocation?.city.toLowerCase().includes(text.toLowerCase())
+            32.      )
+            33.    }
+            34.
+            35.  }
+
+--- 07.12. Modificar código del archivo 'app01/src/app/components/details/details.component.ts' en las líneas:
+
+            20.      const housingLocationId = parseInt(this.route.snapshot.params['id'], 10);                    // Capturar Id
+            21.      this.housingService.getHousingLocationById(housingLocationId).then((housingLocation) => {})  // Usar el método de Id
+
+           Quedando así:
+
+             1.  import { Component, inject } from '@angular/core';
+             2.  import { ActivatedRoute } from '@angular/router';
+             3.  import { HousingService } from '../housing.service';
+             4.  import { HousingLocation } from '../housing-location';
+             5.  import { CommonModule } from '@angular/common';
+             6.  import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+             7.
+             8.  @Component({
+             9.    selector: 'app-details',
+            10.    imports: [CommonModule, ReactiveFormsModule],
+            11.    templateUrl: './details.component.html',
+            12.    styleUrl: './details.component.css'
+            13.  })
+            14.  export class DetailsComponent {
+            15.    route: ActivatedRoute = inject(ActivatedRoute);
+            16.    housingService = inject(HousingService);
+            17.    housingLocation: HousingLocation | undefined;
+            18.
+            19.    constructor(){
+            20.      const housingLocationId = parseInt(this.route.snapshot.params['id'], 10);
+            21.      this.housingService.getHousingLocationById(housingLocationId).then((housingLocation) => {
+            22.        this.housingLocation = housingLocation;
+            23.      })
+            24.    }
+            25.
+            26.    formAngular = new FormGroup({
+            27.      firstName: new FormControl(''),
+            28.      lastName: new FormControl(''),
+            29.      email: new FormControl(''),
+            30.    });
+            31.
+            32.    onSubmit(){
+            33.      this.housingService.submitApplication(
+            34.        this.formAngular.value.firstName ?? '',
+            35.        this.formAngular.value.lastName ?? '',
+            36.        this.formAngular.value.email ?? '',
+            37.      )
+            38.    }
+            39.
+            40.  }
+
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- Recomendaciones para poner en marcha el proyecto ----------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+--- 01. Clonar el proyecto desde github en cualquier parte del computador (Ejp, Escritorio)
+
+--- 02. Abrir el proyecto en Visual Studio Code
+
+--- 03. Abrir una terminal y ubicarse en el proyecto:
+
+          PS ..\..> cd app01
+
+--- 04. Instalar dependencias de Angular desde la terminal:
+
+          PS ..\app01> npm install
+
+        NOTA: Si no está instalado Angular en el computador, seguir el apartado '01. Presentación y creación del proyecto'
+
+--- 05. Abrir otra terminal y ejecutar el servidor de 'angular':
+
+          PS ..\app01> ng serve -o
+
+--- 06. Abrir una terminal y ubicarse en el servidor json:
+
+          PS ..\..> cd jsonserver
+
+--- 07. Abrir otra terminal y ejecutar el servidor 'jsonserver':
+
+          PS ..\jsonserver> npx json-server db.json

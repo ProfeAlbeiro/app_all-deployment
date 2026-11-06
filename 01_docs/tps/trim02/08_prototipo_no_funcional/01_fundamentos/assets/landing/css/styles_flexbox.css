@@ -1,0 +1,69 @@
+/* ------------------------------------------------------------------------------------- */
+/* -------------------------- I. GENERALIDADES DEL CONTENIDO --------------------------- */
+/* ------------------------------------------------------------------------------------- */
+/* Selector Universal */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;    
+}
+/* Borde */
+.borde{
+    border: 1px solid gray;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* ---------------------------- II. LAYOUT: MAQUETACIÓN WEB ---------------------------- */
+/* ------------------------------- ESCRITORIO Y PORTATIL ------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Contenedor */
+.contenedor{
+    width: 90%;
+    max-width: 1280px;
+    margin: auto;    
+}
+/* Nav */
+nav{    
+    height: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.logo{
+    flex: 20%;
+}
+.navega{
+    flex: 65%;
+}
+.ingreso{
+    flex: 15%;
+}
+
+/* Encabezado */
+header{    
+    height: 500px;    
+}
+/* Títulos */
+.titulo{
+    height: 100px;
+}
+/* Secciones */
+section{
+    height: 700px;
+}
+/* Portafolio */
+.portafolio{
+    display: flex;    
+    flex-flow: row nowrap;    
+}
+.portafolio-column{
+    flex: 1;
+}
+/* Nosotros */
+.nosotros{}
+/* Contáctenos */
+.contactenos{}
+/* Pie de Página */
+footer{
+    height: 120px;
+}

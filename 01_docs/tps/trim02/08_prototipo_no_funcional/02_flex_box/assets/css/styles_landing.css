@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+.borde {
+  border: 1px solid #ccc;
+}
+body {
+  background: #eee;
+}
+.container {
+  height: 100vh;
+  max-width: 1280px;
+  width: 95%;
+  margin: auto;
+  display: flex;
+  flex-flow: column nowrap;
+}
+nav {
+  position: fixed;
+  max-width: 1280px;
+  width: 95%;
+  margin: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 50px;
+}
+nav div {
+  flex: 1;
+  display: flex;
+  flex-flow: row nowrap;
+}
+nav a {
+  flex: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  padding: 0 5px;
+}
+.logo {
+  flex: 20%;
+  background: #fff;
+  justify-content: center;  
+}
+.logo img {
+  height: 50px;
+  padding: 5px;
+}
+.navega {
+  flex: 65%;
+}
+.navega .inicio {
+  flex: 1;  
+  background: #999;
+}
+.navega .navegacion {  
+  flex: 1;  
+  justify-content: flex-end;
+  background: #666;
+}
+.navega .inicio a:hover,
+.navega .navegacion a:hover {
+  background: #000;
+}
+.ingreso {
+  flex: 15%;
+  background: #333;
+  color: #fff;
+}
+.ingreso a:hover {
+  background: #000;
+}
+section {
+  height: 92vh;
+  padding: 60px 10px 10px 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  background: #000;
+}
+section div {
+  flex: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 5px;
+}
+section .card {
+  display: flex;
+  flex-flow: column nowrap;
+}
+section a {
+  flex: 1;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.4em;
+  border-radius: 7px;
+  text-align: center;
+  background: #fff;
+}
+section a:hover {
+  background: #ddd;
+}
+footer {
+  height: 8vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  color: #fff;
+  font-size: 0.7em;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+  nav {
+    width: 100%;
+    flex-flow: column nowrap;
+    height: 150px;
+  }
+  nav div {
+    flex: 1;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  .logo {
+    flex: 2;
+    align-items: center;
+  }
+  .logo img {
+    padding: 0;
+  }
+  .navega {
+    flex: 1;
+  }
+  .navega .inicio {
+    flex: 30%;
+  }
+  .navega .navegacion {
+    flex: 70%;
+    justify-content: flex-end;
+    background: #666;
+  }
+  .navega .navegacion a {
+    flex: 1;
+  }
+  .ingreso {
+    flex: 1;
+    background: #333;
+    color: #fff;
+  }
+  section {
+    flex: 1;
+    padding: 160px 5px 5px 5px;
+  }
+  section div {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0;
+  }
+  section div > div {
+    padding: 5px;
+  }
+  section .card {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  footer {
+    font-size: 0.6em;
+  }
+}

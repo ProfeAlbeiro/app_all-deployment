@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-29T21:59:23.780Z",
+    "end": "2026-10-29T21:59:42.129Z",
+    "duration": 18349,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7d861bad-fdd2-49a5-b056-0b27154d7d8c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\acceptance\\users.acceptance.cy.js",
+      "file": "cypress\\e2e\\acceptance\\users.acceptance.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0c8f49ec-7f01-4c49-b8eb-6aa6f5b1ce11",
+          "title": "Nivel 5: Pruebas de Aceptación (UAT) - Criterios del Cliente",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "AT-01: El cliente debe poder registrarse y ver un mensaje de confirmación",
+              "fullTitle": "Nivel 5: Pruebas de Aceptación (UAT) - Criterios del Cliente AT-01: El cliente debe poder registrarse y ver un mensaje de confirmación",
+              "timedOut": null,
+              "duration": 11192,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/register');\n// Generamos datos únicos para el nuevo cliente\nconst emailCliente = `cliente_${Date.now()}@test.com`;\n// Llenamos el formulario de registro\ncy.get('input[name=\"name\"]').type('Cliente');\ncy.get('input[name=\"lastname\"]').type('Aceptacion');\ncy.get('input[name=\"email\"]').type(emailCliente);\ncy.get('input[name=\"phone\"]').type('3001234567');\ncy.get('input[name=\"password\"]').type('password123');\ncy.get('input[name=\"confirmPassword\"]').type('password123');\n// Por defecto el rol es 'user', así que lo dejamos así\ncy.get('button[type=\"submit\"]').click();\n// El sistema debe confirmar el registro (AlertMessage de éxito)\ncy.contains('Usuario registrado exitosamente').should('be.visible');\n// Y debe redirigir al login después de 2 segundos (según su código)\ncy.url().should('include', '/login', {\n  timeout: 5000\n});",
+              "err": {},
+              "uuid": "2a1b1620-a377-4f1c-9e56-10840323b0ad",
+              "parentUUID": "0c8f49ec-7f01-4c49-b8eb-6aa6f5b1ce11",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AT-02: Un usuario con rol \"Vendedor\" no debe ver el botón de eliminar",
+              "fullTitle": "Nivel 5: Pruebas de Aceptación (UAT) - Criterios del Cliente AT-02: Un usuario con rol \"Vendedor\" no debe ver el botón de eliminar",
+              "timedOut": null,
+              "duration": 1451,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 1. Creamos un usuario vendedor por API para agilizar el test\nconst emailVendedor = `vendedor_${Date.now()}@test.com`;\ncy.request({\n  method: 'POST',\n  url: 'http://10.1.195.62:3000/api/users/create',\n  // 👈 Asegúrese de usar su IP correcta\n  body: {\n    name: \"Vendedor\",\n    lastname: \"Test\",\n    email: emailVendedor,\n    password: \"password123\",\n    role: \"seller\" // 👈 Forzamos el rol de vendedor\n  }\n});\n// 2. Hacemos login con ese vendedor\ncy.login(emailVendedor, 'password123');\ncy.visit('/dashboard');\ncy.contains('button', 'Usuarios').click();\n// 3. Buscamos el botón de eliminar en la tabla\n// Debe existir en el DOM, pero estar deshabilitado por la lógica de React (canDelete)\ncy.get('button.btn-delete').first().should('be.disabled');",
+              "err": {},
+              "uuid": "88cfecd7-4c07-44f2-9de7-20ed26792977",
+              "parentUUID": "0c8f49ec-7f01-4c49-b8eb-6aa6f5b1ce11",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AT-03: Un administrador no debe poder eliminar su propio usuario",
+              "fullTitle": "Nivel 5: Pruebas de Aceptación (UAT) - Criterios del Cliente AT-03: Un administrador no debe poder eliminar su propio usuario",
+              "timedOut": null,
+              "duration": 984,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('admin@test.com', 'password123');\ncy.visit('/dashboard');\ncy.contains('button', 'Usuarios').click();\n// Buscamos la fila del administrador logueado\ncy.contains('tr', 'admin@test.com').within(() => {\n  // Verificamos que el botón de eliminar esté deshabilitado (por la lógica de React)\n  cy.get('button.btn-delete').should('be.disabled');\n});",
+              "err": {},
+              "uuid": "8913ca54-ab12-490b-8629-dc80bd6d91ef",
+              "parentUUID": "0c8f49ec-7f01-4c49-b8eb-6aa6f5b1ce11",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AT-04: Los datos creados deben persistir al recargar la página",
+              "fullTitle": "Nivel 5: Pruebas de Aceptación (UAT) - Criterios del Cliente AT-04: Los datos creados deben persistir al recargar la página",
+              "timedOut": null,
+              "duration": 1858,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('admin@test.com', 'password123');\ncy.visit('/dashboard');\ncy.contains('button', 'Usuarios').click();\n// Creamos un usuario rápido\nconst emailPersistente = `persistente_${Date.now()}@test.com`;\ncy.request({\n  method: 'POST',\n  url: 'http://10.1.195.62:3000/api/users/create',\n  // 👈 Asegúrese de usar su IP correcta\n  body: {\n    name: \"Persistente\",\n    lastname: \"Test\",\n    email: emailPersistente,\n    password: \"123\"\n  }\n});\n// Recargamos la página fuertemente\ncy.reload();\ncy.contains('button', 'Usuarios').click();\n// El usuario debe seguir en la tabla (porque está en la BD real)\ncy.get('table').should('contain', emailPersistente);",
+              "err": {},
+              "uuid": "0dca2ae5-41c3-4c9c-94e4-197ab2ddd910",
+              "parentUUID": "0c8f49ec-7f01-4c49-b8eb-6aa6f5b1ce11",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "AT-05: El usuario debe poder cerrar sesión y limpiar el almacenamiento local",
+              "fullTitle": "Nivel 5: Pruebas de Aceptación (UAT) - Criterios del Cliente AT-05: El usuario debe poder cerrar sesión y limpiar el almacenamiento local",
+              "timedOut": null,
+              "duration": 2494,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('admin@test.com', 'password123');\ncy.visit('/dashboard');\n// Hacemos clic en Cerrar Sesión (está en el Header del Dashboard)\ncy.contains('button', 'Cerrar Sesión').click();\n// Verificamos que redirige al login\ncy.url().should('include', '/login');\n// Verificamos que el token y los datos del usuario se borraron\ncy.window().then(win => {\n  expect(win.localStorage.getItem('auth_token')).to.be.null;\n  expect(win.localStorage.getItem('user_data')).to.be.null;\n});",
+              "err": {},
+              "uuid": "8fa44456-4444-430f-87fb-61eb980cf61c",
+              "parentUUID": "0c8f49ec-7f01-4c49-b8eb-6aa6f5b1ce11",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2a1b1620-a377-4f1c-9e56-10840323b0ad",
+            "88cfecd7-4c07-44f2-9de7-20ed26792977",
+            "8913ca54-ab12-490b-8629-dc80bd6d91ef",
+            "0dca2ae5-41c3-4c9c-94e4-197ab2ddd910",
+            "8fa44456-4444-430f-87fb-61eb980cf61c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17979,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/html",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

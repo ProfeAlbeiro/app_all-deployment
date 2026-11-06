@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-29T22:01:17.709Z",
+    "end": "2026-10-29T22:01:19.846Z",
+    "duration": 2137,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a900c994-dad9-4cb6-9349-db994ce36dc4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\system\\smoke.cy.js",
+      "file": "cypress\\e2e\\system\\smoke.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4b6c856f-7473-43c6-a667-9d7bcb03de02",
+          "title": "Configuración de Cypress",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Cypress está funcionando correctamente",
+              "fullTitle": "Configuración de Cypress Cypress está funcionando correctamente",
+              "timedOut": null,
+              "duration": 131,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "expect(true).to.equal(true);",
+              "err": {},
+              "uuid": "cb450d07-6430-414f-88a9-8f1f72e79e1b",
+              "parentUUID": "4b6c856f-7473-43c6-a667-9d7bcb03de02",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "El frontend está corriendo y responde",
+              "fullTitle": "Configuración de Cypress El frontend está corriendo y responde",
+              "timedOut": null,
+              "duration": 1846,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/'); // Usa la baseUrl del config\ncy.contains('Sistema de Información Web'); // Texto del LoginView",
+              "err": {},
+              "uuid": "0f538528-0ac0-475c-87b7-67946b97fddf",
+              "parentUUID": "4b6c856f-7473-43c6-a667-9d7bcb03de02",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cb450d07-6430-414f-88a9-8f1f72e79e1b",
+            "0f538528-0ac0-475c-87b7-67946b97fddf"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1977,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/html",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

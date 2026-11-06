@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kablammo&display=swap');
+/* ------------------------------------------------------------------------------------- */
+/* -------------------------- I. GENERALIDADES DEL CONTENIDO --------------------------- */
+/* ------------------------------------------------------------------------------------- */
+/* Selector Universal */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;    
+}
+
+.editar{
+    padding: 5px;
+    border: 1px solid gray;
+    color: green;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+.editar:hover{
+    background: black;
+    color: white;
+}
+.eliminar{    
+    padding: 5px 8px;
+    border: 1px solid gray;
+    color: red;
+    border-radius: 3px;
+}
+.eliminar:hover{    
+    background: black;
+    color: white;
+}
+/* ------------------------------------------------------------------------------------- */
+/* ---------------------------- II. LAYOUT: MAQUETACIÓN WEB ---------------------------- */
+/* ------------------------------- ESCRITORIO Y PORTATIL ------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Navegador */
+nav{
+    height: 7vh;
+}
+
+/* Secciones */
+section{
+    height: 80vh;
+}
+main iframe{
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+/* Portafolio */
+
+/* Pie de Página */
+footer{
+    height: 13vh;
+}
+
+
+
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------ III. RESPONSIVE DESIGN ------------------------------- */
+/* -------------------------------------- TABLETS -------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+/* Tablet: Media Queries */
+@media (min-width: 992px) {
+    /* Contenedor */
+    .logo{
+        height: 50px;
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------- IV. RESPONSIVE DESIGN ------------------------------- */
+/* ------------------------------------- CELULARES ------------------------------------- */
+/* ------------------------------------------------------------------------------------- */

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kablammo&display=swap');
+/* ------------------------------------------------------------------------------------- */
+/* -------------------------- I. GENERALIDADES DEL CONTENIDO --------------------------- */
+/* ------------------------------------------------------------------------------------- */
+/* Selector Universal */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;    
+}
+/* ------------------------------------------------------------------------------------- */
+/* ---------------------------- II. LAYOUT: MAQUETACIÓN WEB ---------------------------- */
+/* ------------------------------- ESCRITORIO Y PORTATIL ------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* Nav */
+nav{    
+    /* height: 50px;     */
+}
+.navbar-brand i{
+    color: #fff;
+    font-size: 2em;
+}
+/* Logo */
+.logo{
+    height: 100px;
+    background: #9EF8EE;
+    text-align: center;
+    display: flex;
+    flex-grow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.navbar-brand img{
+    width: auto;
+    height: 40px;
+}
+/* Navegador */
+.navega{
+    height: 50px;
+    background: #348888;
+}
+/* Ingreso */
+.ingreso{
+    height: 50px;
+    background: #22BABB;
+}
+/* Encabezado */
+header{    
+    /* height: 500px; */
+    /* background-image: url(../img/horse-8209533_1280.jpg); */
+    /* background-size: 100% 100%;     */
+    /* background-attachment: fixed;     */
+}
+header .col-12{
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: end;
+    padding: 50px;
+}
+/* Títulos */
+.titulo{
+    height: 100px;
+    font-size: 3em;
+    text-align: center;
+    padding: 16px;
+    font-family: "Rubik Wet Paint", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+/* Secciones */
+section{
+    height: 700px;
+}
+/* Portafolio */
+.portafolio{}
+.portafolio-column{
+    padding: 20px;
+    text-align: justify;
+    font-family: "Kablammo", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "MORF" 0;
+}
+.portafolio-column h2{
+    margin-bottom: 20px;
+    font-family: "Rubik Wet Paint", system-ui;
+    font-weight: 400;
+    font-style: normal;    
+}
+/* Nosotros */
+.nosotros{}
+.nosotros .col-12{
+    height: 33.33%;
+}
+.nosotros .row{
+    height: 100%;
+}
+/* Contáctenos */
+.contactenos{}
+.contactenos iframe{
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+/* Pie de Página */
+footer{
+    height: 120px;
+}
+
+
+
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------ III. RESPONSIVE DESIGN ------------------------------- */
+/* -------------------------------------- TABLETS -------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+/* Tablet: Media Queries */
+@media (min-width: 992px) {
+    /* Contenedor */
+    .logo{
+        height: 50px;
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------- IV. RESPONSIVE DESIGN ------------------------------- */
+/* ------------------------------------- CELULARES ------------------------------------- */
+/* ------------------------------------------------------------------------------------- */

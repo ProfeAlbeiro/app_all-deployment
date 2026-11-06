@@ -1,0 +1,1049 @@
+/* ------------------------------------------------------------------------------------- */
+/* -------------------------- I. GENERALIDADES DEL CONTENIDO --------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------------------- */
+/* FUENTES: ROBOTO Y YANONE ------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap');
+
+/* ------------------------------------------------------------------------------------- */
+/* CLASES ESPECIALES ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html{
+	scroll-behavior: smooth;
+}
+body{
+	background: #ddd;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+/* Borde */
+.borde{
+	border: 1px solid #ccc;
+}
+/* Centrar */
+.centrar{
+	text-align: center!important;
+}
+/* Tope: Navegación */
+.tope{
+	position: relative;
+	top: -49px;
+}
+/* Colores básicos */
+.color-negro{
+	background: #000;
+}
+.color-gris-oscuro{
+	background: #777;
+}
+.color-gris-claro{
+	background: #aaa;
+}
+.color-blanco{
+	background: #fff;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* OTRAS PÁGINAS DEL LANDING ----------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+.paginas{
+	min-height: 72vh;
+	padding: 10px;
+	display: flex;
+	flex-flow: column wrap;
+}
+/* Páginas con Formularios */
+.paginas.forms{
+	align-items: center;
+	justify-content: center;
+}
+/* Páginas con Subtítulos y Párrafos */
+.paginas .subtitulo,
+.paginas .parrafo{
+	text-align: center;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* TEXTO: TÍTULOS, SUBTÍTULOS Y PÁRRAFOS ----------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+/* Títulos */
+.titulo{
+	min-height: 70px;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	background: #343A40;
+	color: #FFF;
+}
+/* Subtítulos */
+.subtitulo{
+	flex: 0 0 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	font-family: 'Roboto', sans-serif;
+	border-radius: 4px 4px 0 0;
+	background: #CCC;
+}
+/* Párrafos */
+.parrafo{
+	flex: 1;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: flex-start;
+	text-align: justify;
+	padding: 10px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 0.9em;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* IMÁGENES ---------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+.imagen{
+	flex: 1;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+}
+.imagen img{
+	max-width: 150px;
+	min-width: 5px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* ICONOGRAFÍA ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+.social-media{
+	flex: 1;
+	display: flex;
+	flex-flow: row nowrap;
+	padding: 10px;
+	border-top: 1px solid #ccc;	;
+}
+.social-media div{
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 3.5em;
+}
+.social-media div a{
+	text-decoration: none;
+	color: #000;
+}
+.social-media div a:hover{
+	color: #FFF;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* BOTONES DE ENLACE ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+.ver{
+	flex: 0 0 50px;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	padding: 5px;
+	border-radius: 0 0 4px 4px;
+	background: #CCC;
+}
+.ver a{
+	flex: 0 0 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	font-size: 1.3em;
+	color: #EEE;
+	background: #2A5159;
+	border-radius: 4px;
+}
+.ver a:hover{
+	background: rgba(30, 30, 30, 0.5);
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* MIGAS DE PAN ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+.migas{
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	padding: 10px;
+}
+.migas a,
+.migas P{
+	text-decoration: none;
+	color: #EEE;
+	font-size: 1.2em;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* FORMULARIOS ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+/* Validación de Formularios: Html y Css */
+form input:focus,
+form textarea:focus{
+	outline: none;
+}
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+textarea{
+	border: 1px solid #999;
+}
+form input[type="text"]:focus:required:invalid,
+form input[type="email"]:focus:required:invalid,
+form input[type="password"]:focus:required:invalid,
+textarea:focus:invalid{
+	border: 2px solid red;
+}
+form input[type="text"]:focus:required:valid,
+form input[type="email"]:focus:required:valid,
+form input[type="password"]:focus:required:valid,
+textarea:focus:required:valid{
+	border: 2px solid green;
+}
+form input[type="text"]:required:invalid,
+form input[type="email"]:required:invalid,
+form input[type="password"]:required:invalid,
+textarea:invalid{
+	border: 1px solid #999;
+}
+form input[type="text"]:required:valid,
+form input[type="email"]:required:valid,
+form input[type="password"]:required:valid,
+textarea:required:valid{
+	border: 2px solid green;
+}
+/* Formularios en General */
+.form{
+	flex: 1;
+	display: flex;
+	flex-flow: column wrap;
+	font-family: 'Roboto', sans-serif;
+}
+.form .form-subtitulo{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	font-family: 'Roboto', sans-serif;
+	border-radius: 4px 4px 0 0;
+	background: #CCC;
+}
+.form .form-cuerpo{
+	flex: 1;
+	display: flex;
+	flex-flow: column wrap;
+	padding: 10px;
+}
+.form-cuerpo .form-control{
+	display: flex;
+	padding: 5px;
+}
+.form-cuerpo .label{
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 10px;
+	padding: 5px;
+}
+.form-cuerpo .input,
+.form-cuerpo .textarea{
+	flex: 2;
+	display: flex;
+	padding: 5px;
+	font-size: 1em;
+	border-radius: 4px;
+}
+.form-cuerpo .textarea{
+	resize: none;
+	font-family: 'Roboto', sans-serif;
+}
+.form .form-pie{
+	flex: 0 0 50px;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	padding: 5px;
+	border-radius: 0 0 4px 4px;
+	background: #CCC;
+}
+.form input[type="submit"],
+.form input[type="reset"],
+.form input[type="button"]{
+	flex: 1;
+	cursor: pointer;
+	font-weight: bold;
+	font-family: 'Roboto', sans-serif;
+}
+/* Formulario de Inicio de Sesión */
+.form-login,
+.form-register,
+.form-forgot{
+	flex: 0 0 100%;
+	width: 60%;
+}
+.form-login .form-subtitulo,
+.form-register .form-subtitulo{
+	border-radius: 0;
+}
+.form-login .enlace-olvido,
+.form-login .enlace-registro,
+.form-register .enlace-registro{
+	flex: 1;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	padding: 10px;
+	text-decoration: none;
+	color: #FFF;
+	font-weight: bold;
+}
+.form-login .enlace-registro,
+.form-register .enlace-registro{
+	border-bottom: 1px solid #EEE;
+	border-radius: 4px 4px 0 0;
+	background: #EEE;
+	color: #2A5159;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* TABLAS ------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+.table{
+	width: 100%;
+	border-collapse: collapse;
+}
+.table td, th{
+  border: 1px solid #DDD;
+  text-align: left;
+  padding: 6px;
+  text-align: center;
+}
+.table th{
+	background: #000;
+	color: #FFF;
+}
+.table tr:nth-child(even) {
+  background-color: #DDD;
+}
+.table .tabla-acciones{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+}
+.table .tabla-acciones a{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	padding: 8px;
+	border-radius: 4px;
+}
+.table .tabla-acciones .tabla-edit{
+	color: #EEE;
+	background: #2A5159;
+}
+.table .tabla-acciones .tabla-delete{
+	color: #EEE;
+	background: #D34826;
+	margin-left: 5px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* DATATABLES.JS: FILTROS DE TABLA ----------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+.data-tables{
+	padding: 10px;
+}
+.table-data-tables{
+	padding: 10px;
+	border: 1px solid #CCC;
+}
+.table-data-tables td, th{
+  border: 1px solid #DDD;
+  text-align: left;
+  padding: 6px;
+  text-align: center!important;
+}
+.table-data-tables th{
+	background: #000;
+	color: #FFF;
+}
+.table-data-tables tr:nth-child(even) {
+  background-color: #DDD;
+}
+.table-data-tables .tabla-acciones{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+}
+.table-data-tables .tabla-acciones a{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	padding: 8px!important;
+	border-radius: 4px!important;
+}
+.table-data-tables .tabla-acciones .tabla-edit{
+	color: #EEE!important;
+	background: #2A5159!important;
+}
+.table-data-tables .tabla-acciones .tabla-delete{
+	color: #EEE!important;
+	background: #D34826!important;
+	margin-left: 5px!important;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* SWEETALERT.JS: MENSAJES DE ALERTA --------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+.sweet-alert{
+	flex: 1;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	border: 1px solid #CCC;
+	border-radius: 0 0 4px 4px;
+}
+.sweet-alert div{
+	flex: 1;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+}
+.sweet-alert a{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #CCC;
+	text-decoration: none;
+	padding: 20px;
+	border-radius: 4px;
+	font-size: 1.5em;
+	background: #D34826;
+}
+.sweet-alert .mensajeCorrecto a,
+.sweet-alert .mensajeIncorrecto a{
+	color: #EEE;
+	background: #2A5159;
+	width: 180px;
+}
+.sweet-alert .mensajeAdvertencia{
+	display: flex;
+}
+.sweet-alert a i{
+	color: #EEE;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* CANVAS.JS: REPORTES GRÁFICOS -------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+.canvas-js{
+	flex: 1;
+	display: flex;
+	flex-flow: row wrap;
+	border: 1px solid #CCC;
+	border-radius: 0 0 4px 4px;
+	padding: 10px;
+}
+.canvas-js > div{
+	flex: 1;
+	display: flex;
+	flex-flow: column wrap;
+	border: 1px solid #CCC;
+	padding: 10px;
+}
+.canvas-js .canvas-grap{
+	flex: 1;
+}
+.canvas-js .canvas-grap .chart-grap{
+	flex: 1;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* JSPDF.JS: REPORTES IMPRESOS --------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+.js-pdf{
+	flex: 1;
+	display: flex;
+	flex-flow: row wrap;
+	border: 1px solid #CCC;
+	border-radius: 0 0 4px 4px;
+	padding: 10px;
+}
+.js-pdf > div{
+	display: flex;
+	flex-flow: column wrap;
+	border: 1px solid #CCC;
+}
+.js-pdf .js-pdf-izq{
+	flex: 1;
+}
+.js-pdf .js-pdf-izq input{
+	flex: 2;
+}
+.js-pdf .js-pdf-der{
+	flex: 1.5;
+}
+.js-pdf .js-pdf-der iframe{
+	flex: 1;
+	border: 0;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* FULLCALENDAR.JS: CALENDARIO DE EVENTOS----------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+.full-calendar{
+	flex: 1;
+	justify-content: center;
+	border: 1px solid #CCC;
+	border-radius: 0 0 4px 4px;
+	padding: 10px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* ---------------------------- II. LAYOUT: MAQUETACIÓN WEB ---------------------------- */
+/* ------------------------------- ESCRITORIO Y PORTATIL ------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------------------- */
+/* ESTRUCTURA GENERAL ------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+.contenedor{
+	max-width: 1280px;
+	width: 95%;
+	margin: auto;
+}
+/* Navegador, Encabezado,
+Secciones y Pie de Página*/
+nav, header, section, footer{
+	display: flex;
+	flex-flow: column nowrap;
+	background: #FFF;
+	height: 100%;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* NAVEGADOR --------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+nav{
+	flex-flow: row wrap;
+	height: 50px;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	font-size: 1.3em;
+}
+.logo{
+	flex: 20%;
+	height: 100%;
+	background: #FFF;
+	border-bottom: 1px solid #ccc;
+	display: flex;
+}
+.logo img{
+	width: 100%;
+}
+.menu{
+	flex: 65%;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-end;
+	height: 100%;
+	background: #EF8814;
+}
+.menu .m-home,
+.menu .m-portafolio,
+.menu .m-nosotros,
+.menu .m-contactenos{
+	flex: 0 0 15%;
+	display: flex;
+}
+.menu a,
+.ingreso a{
+	flex: 1;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+}
+.menu a:hover{
+	background: rgba(0, 0, 0, 0.5);
+	color: #EEE;
+}
+.ingreso a:hover{
+	background: rgba(255, 255, 255, 0.8);
+	color: #333;
+}
+.menu a{
+	color: #343A40;
+}
+.ingreso{
+	flex: 15%;
+	display: flex;
+	height: 100%;
+	background: #000;
+}
+.ingreso .m-ingreso{
+	flex: 1;
+	display: flex;
+}
+.ingreso a{
+	color: #DDD;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* ENCABEZADO Y SECCIONES -------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+header, section{
+	min-height: 83.5vh;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* ENCABEZADO -------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+header{
+	background-image: url('../img/header.jpg');
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* SECCIÓN: PORTAFOLIO ----------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+.portafolio{
+	flex-flow: row wrap;
+}
+.port-col-izq,
+.port-col-cnt,
+.port-col-der{
+	flex: 1;
+	display: flex;
+	flex-flow: column wrap;
+	padding: 10px;
+}
+.portafolio .imagen{
+	flex: 0 0 200px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* SECCIÓN: NOSOTROS ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+.nos-fila-arr,
+.nos-fila-cnt,
+.nos-fila-abj{
+	flex: 1;
+	display: flex;
+	flex-flow: row wrap;
+}
+.nos-col-izq,
+.nos-col-cnt,
+.nos-col-der{
+	padding: 10px;
+	display: flex;
+	flex-flow: column wrap;
+}
+.nos-col-izq,
+.nos-col-der{
+	flex: 2;
+}
+.nos-col-cnt{
+	flex: 1;
+}
+/* Subtítulos y Párrafos */
+.nos-col-izq .subtitulo{
+	justify-content: flex-end;
+}
+.nos-col-izq .parrafo{
+	justify-content: right;
+	text-align: right;
+}
+.nos-col-der .subtitulo{
+	justify-content: flex-start;
+}
+.nos-col-der .parrafo{
+	justify-content: left;
+	text-align: left;
+}
+/* Botones de enlace */
+.nos-col-izq .ver{
+	justify-content: flex-end;
+}
+.nos-col-der .ver{
+	justify-content: flex-start;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* SECCIÓN CONTÁCTENOS ----------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+.contactenos{
+	flex-flow: row wrap;
+}
+.cont-col-izq,
+.cont-col-der{
+	flex: 1;
+}
+.cont-col-izq{
+	display: flex;
+	flex-flow: column wrap;
+	padding: 10px;
+}
+.cont-col-der{
+	display: flex;
+	flex-flow: column nowrap;
+}
+.cont-fila-arr{
+	flex: 0 0 65%;
+	display: flex;
+}
+.cont-fila-arr iframe{
+	flex: 1;
+	border: 0;
+}
+.cont-fila-abj{
+	flex: 0 0 35%;
+	display: flex;
+	flex-flow: column nowrap;
+	font-size: 0.8em;
+}
+.contactenos .info-basica{
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	height: 60%;
+	padding: 10px;
+}
+.contactenos .info-basica p{
+	text-align: center;
+	font-size: 1.2em;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* PIE DE PÁGINA ----------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+footer{
+	min-height: 70px;
+	background: #000;
+	padding: 10px;
+	font-size: 0.8em;
+}
+footer .parrafo{
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #DDD;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------ III. RESPONSIVE DESIGN ------------------------------- */
+/* -------------------------------------- TABLETS -------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+@media (max-width: 992px) {
+	/* Tope */
+	.tope{
+		top: -149px;
+	}
+	/* Otras Páginas Landing */
+	.paginas{
+		min-height: 49vh;
+	}
+	/* Contenedor */
+	.contenedor{
+		width: 100%;
+	}
+	/* Navegador */
+	nav{
+		height: 150px;
+		width: 100%;
+	}
+	.logo{
+		height: 100px;
+		flex: 100%;
+	}
+	.menu, .ingreso{
+		height: 50px;
+	}
+	.menu{
+		flex: 80%;
+		justify-content: center;
+	}
+	.ingreso{
+		flex: 20%;
+	}
+	/* Encabezado */
+	header{
+		min-height: 70vh;
+		background-attachment: initial;
+	}
+	/* Sección: Portafolio */
+	.port-col-izq{
+		flex: 100%;
+	}
+	.port-col-cnt,
+	.port-col-der{
+		flex: 50%;
+	}
+	/* Sección: Nosotros */
+	.nos-fila-arr .nos-col-der,
+	.nos-fila-cnt .nos-col-izq,
+	.nos-fila-abj .nos-col-der{
+		display: none;
+	}
+	.nos-col-izq,
+	.nos-col-der{
+		flex: 65%;
+	}
+	.nos-col-cnt{
+		flex: 35%;
+		background: #FFF;
+	}
+	.nos-col-izq .ver{
+		justify-content: center;
+	}
+	.nos-col-der .ver{
+		justify-content: center;
+	}
+	/* Sección: Contáctenos */
+	.contactenos{
+		height: 750px;
+		flex-flow: column wrap;
+	}
+	.cont-col-izq,
+	.cont-col-der{
+		flex: auto;
+		height: 60%;
+	}
+	.cont-col-der{
+		height: 40%;
+	}
+	.cont-col-der{
+		flex-flow: row nowrap;
+	}
+	.cont-fila-arr{
+		flex: 1;
+	}
+	.cont-fila-abj{
+		flex: 1;
+	}
+	/* DataTables.js */
+	.table-data-tables td, th{
+	  text-align: left!important;
+	}
+	/* jsPDF.js */
+	.js-pdf .js-pdf-izq{
+		flex: 0 0 100%;
+	}
+	.js-pdf .js-pdf-der{
+		height: 500px;
+	}
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------- IV. RESPONSIVE DESIGN ------------------------------- */
+/* ------------------------------------- CELULARES ------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+	/* Navegador */
+	nav{
+		height: auto;
+		flex-flow: column wrap;
+	}
+	.logo, .menu, .ingreso{
+		height: 50px;
+		flex: auto;
+	}
+	.menu .m-home,
+	.menu .m-portafolio,
+	.menu .m-nosotros,
+	.menu .m-contactenos{
+		flex: auto;
+		align-items: center;
+	}
+	/* Encabezado */
+	header{
+		height: 30vh;
+		min-height: 30vh;
+		max-height: auto;
+	}
+	/* Sección: Portafolio */
+	.portafolio{
+		flex-flow: column wrap;
+	}
+	.portafolio a{
+		flex: 0 0 100%;
+	}
+	.portafolio .parrafo{
+		align-items: center;
+		text-align: center;
+	}
+	/* Sección: Nosotros */
+	.nosotros{
+		min-height: 1500px;
+	}
+	.nos-fila-arr,
+	.nos-fila-cnt,
+	.nos-fila-abj{
+		flex-flow: column wrap;
+	}
+	.nos-col-cnt{
+		height: 200px;
+	}
+	.nos-col-izq,
+	.nos-col-cnt,
+	.nos-col-der{
+		flex: auto;
+	}
+	.nos-col-izq,
+	.nos-col-der{
+		order: 2;
+	}
+	.nos-col-cnt{
+		order: 1;
+	}
+	.nos-fila-arr .nos-col-izq .subtitulo,
+	.nos-fila-abj .nos-col-izq .subtitulo{
+		justify-content: center;
+	}
+	.nos-fila-cnt .nos-col-der .subtitulo{
+		justify-content: center;
+	}
+	.nos-col-izq .parrafo,
+	.nos-col-der .parrafo{
+		justify-content: center;
+		align-content: center;
+		text-align: center;
+	}
+	.nosotros a{
+		flex: 0 0 100%;
+	}
+	/* Sección: Contáctenos */
+	.contactenos{
+		height: 850px;
+	}
+	.cont-col-izq,
+	.cont-col-der{
+		flex: auto;
+		height: 55%;
+	}
+	.cont-col-der{
+		height: 45%;
+		flex-flow: column nowrap;
+	}
+	/* Formularios */
+	.form .form-cuerpo label{
+		display: none;
+	}
+	.form-login,
+	.form-register,
+	.form-forgot{
+		flex: 0 0 100%;
+		width: 100%;
+	}
+	.form-login .enlace-registro{
+		justify-content: center;
+	}
+	/* Tablas */
+	.table-scroll{
+		display: flex;
+		width: 100%;
+		min-width: 360px;
+		height: 45vh;
+		overflow-y: scroll;
+	 	overflow-x: scroll;
+	}
+	.table{
+		flex: 1;
+		display: flex;
+		flex-flow: column wrap;
+		white-space: nowrap;
+		border-collapse: collapse;
+		text-align: center;
+	}
+	/* DataTables.js */
+	#table-data-tables{
+		margin-top: 10px;
+	}
+	.table-data-tables th{
+		text-align: center;
+	}
+	.table-data-tables tbody td a{
+		display: initial;
+		padding: 6px;
+		border-radius: 4px;
+		margin-top: 5px;
+	}
+	.table-data-tables tbody td a.tabla-edit{
+		color: #EEE;
+		background: #2A5159;
+	}
+	.table-data-tables tbody td a.tabla-delete{
+		color: #EEE;
+		background: #D34826;
+		margin-left: 5px;
+	}
+	/* sweetalert.js */
+	.sweet-alert{
+		align-items: stretch;
+	}
+	/* canvas.js */
+	.canvas-js{
+		flex: 1;
+		display: flex;
+		flex-flow: column wrap;
+		border: 1px solid #CCC;
+		border-radius: 0 0 4px 4px;
+		padding: 10px;
+	}
+	.canvas-js > div{
+		flex: 1;
+		display: flex;
+		flex-flow: column wrap;
+		border: 1px solid #CCC;
+		padding: 10px;
+		min-height: 45vh;
+	}
+	.canvas-js .canvas-grap{
+		flex: 1;
+	}
+	.canvas-js .canvas-grap .chart-grap{
+		flex: 1;
+	}
+	/* jspdf.js */
+	.js-pdf .js-pdf-izq{
+		flex: 0 0 100%;
+	}
+	.js-pdf .js-pdf-der{
+		height: auto;
+	}
+}

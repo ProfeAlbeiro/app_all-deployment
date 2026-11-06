@@ -1,0 +1,332 @@
+/* ------------------------------------------------------------------------------------- */
+/* -------------------------- I. GENERALIDADES DEL CONTENIDO --------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------------------- */
+/* FUENTES: ROBOTO Y YANONE ------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap'); */
+
+/* ------------------------------------------------------------------------------------- */
+/* CLASES ESPECIALES ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Botón de Menú */
+.btn-menu-lateral i {
+  display: block;
+  z-index: 10 !important;
+  padding: 7px 7px !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 3px;
+  font-size: 1em;
+  color: #fff;
+  cursor: pointer;
+}
+/* Panel Lateral */
+.activar-panel {
+  visibility: hidden;
+  flex: none !important;
+  max-width: 0 !important;
+  transition: all 200ms linear !important;
+  border: 0 !important;
+}
+.ocultar-aside {
+  display: none !important;
+}
+.ampliar-principal {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
+  transition: all 200ms linear !important;
+  z-index: initial !important;
+}
+main {
+  transition: all 200ms linear !important;
+  height: auto;
+}
+.ocultar-control {
+  display: none;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* DATATABLES.JS: FILTROS DE TABLA ----------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+#data-tables {
+  border: 1px solid #ccc;
+  font-size: 0.8em;
+}
+
+#data-tables td,
+#data-tables th {
+  border: 1px solid #ddd;
+  padding: 6px;
+  text-align: center !important;
+}
+
+#data-tables th {
+  background: #000;
+  color: #fff;
+}
+
+#data-tables tr:nth-child(even) {
+  background-color: #ccc;
+}
+
+#data-tables .tabla-acciones {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#data-tables .tabla-acciones a {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 8px !important;
+  border-radius: 4px !important;
+}
+#data-tables .tabla-acciones a:hover {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+#data-tables .tabla-acciones .tabla-edit {
+  color: #eee !important;
+  background: #2a5159 !important;
+}
+
+#data-tables .tabla-acciones .tabla-delete {
+  color: #eee !important;
+  background: #d34826 !important;
+  margin-left: 5px !important;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* ---------------------------- II. LAYOUT: MAQUETACIÓN WEB ---------------------------- */
+/* ------------------------------- ESCRITORIO Y PORTATIL ------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------------------- */
+/* ESTRUCTURA GENERAL ------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+body {
+  overflow-y: hidden;
+}
+.container-fluid {
+  padding: 0;
+}
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* NAVEGADOR --------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+nav {
+  height: 50px;
+}
+nav .logo img {
+  height: 40px;
+  padding-top: 5px;
+}
+nav .menu li > a {
+  color: #fff !important;
+}
+nav img {
+  height: 50px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* SECCIÓN: PRINCIPAL ------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------- */
+section.row {
+  height: 92vh;
+  padding-top: 50px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* ASIDE: PANEL LATERAL -------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+aside {
+  height: 100%;
+  transition: all 200ms linear !important;
+  border-right: 1px solid #dee2e6 !important;
+}
+aside .config {
+  height: 25%;
+}
+aside img {
+  width: auto !important;
+  height: 85px !important;
+}
+aside #config-text {
+  font-size: 0.8em;
+}
+aside .modulos {
+  height: 75%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+aside .card-header {
+  background: #2d394b;
+}
+aside .modulos button {
+  color: #fff;
+  white-space: nowrap;
+  padding: 0 !important;
+}
+aside .modulos button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+aside .modulos button:hover {
+  color: #fff;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* MAIN: ÁREA DE TRABAJO --------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+main {
+  height: 100%;
+}
+main iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.migas {
+  height: 8vh;
+}
+.titulo-contenido {
+  background: #2d394b;
+  color: #fff;
+  height: 10vh;
+}
+.titulo-contenido h5 {
+  font-size: 1.5em;
+}
+.contenido {
+  height: 82vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.contenido form input:focus,
+.contenido form select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* FOOTER: PIE DE PÁGINA --------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+footer {
+  height: 8vh;
+}
+footer .pie-izq a {
+  color: #fff;
+  font-size: 1.4em;
+}
+footer p {
+  font-size: 0.6em;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------ III. RESPONSIVE DESIGN ------------------------------- */
+/* -------------------------------------- TABLETS -------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+  /* Texto */
+  .titulo-contenido h5 {
+    font-size: 1.2em;
+  }
+  /* Navegador */
+  nav .logo.row {
+    height: 70px;
+  }
+  nav .menu.row {
+    height: 50px;
+  }
+  section.row {
+    padding-top: 126px;
+  }
+  section aside.col-12 {
+    position: relative;
+    z-index: 1;
+  }
+  aside img {
+    width: auto !important;
+    height: 100px !important;
+  }
+  aside .modulos {
+    height: 65%;
+  }
+  section main.col-12 {
+    position: absolute;
+    z-index: -1;
+    height: 74%;
+    padding: 100px;
+  }
+  footer.row {
+    width: 100%;
+    z-index: 10 !important;
+    position: absolute !important;
+    bottom: 0px !important;
+  }
+  footer .pie-izq {
+    display: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------ IV. RESPONSIVE DESIGN -------------------------------- */
+/* ------------------------------------- CELULARES ------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  /* DataTables.js */
+  #data-tables {
+    margin-top: 10px;
+  }
+  #data-tables td,
+  #data-tables th {
+    text-align: left !important;
+  }
+  #data-tables tbody td a {
+    display: initial;
+    padding: 6px;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+
+  #data-tables tbody td a.tabla-edit {
+    color: #eee;
+    background: #2a5159;
+  }
+
+  #data-tables tbody td a.tabla-delete {
+    color: #eee;
+    background: #d34826;
+    margin-left: 5px;
+  } 
+  .migas {
+    height: 40px;
+  }
+  .titulo-contenido {
+    background: #2d394b;
+    color: #fff;
+    height: 54px;
+  }  
+  .contenido {
+    height: 83vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}

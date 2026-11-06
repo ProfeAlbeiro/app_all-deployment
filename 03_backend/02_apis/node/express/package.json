@@ -1,0 +1,42 @@
+{
+  "name": "api_nodejs_express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon index.js",
+    "start:test": "cross-env NODE_ENV=test node index.js",
+    "test": "cross-env NODE_ENV=test jest",
+    "test:watch": "cross-env NODE_ENV=test jest --watch",
+    "test:coverage": "cross-env NODE_ENV=test jest --coverage"
+  },
+  "keywords": [
+    "api",
+    "nodejs",
+    "express"
+  ],
+  "author": "Albeiro Ramos",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.24.6",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "jest": "^30.5.2",
+    "jest-html-reporters": "^3.1.7",
+    "nodemon": "^3.1.11",
+    "supertest": "^7.3.1"
+  }
+}

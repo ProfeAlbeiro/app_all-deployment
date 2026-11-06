@@ -1,0 +1,419 @@
+
+TUTORIAL PHPUNIT TESTING: https://www.youtube.com/playlist?list=PLRHPC9shBXl3DUiljoV5OZ2G4Xm8wAUbG
+
+___________________________________________________________________________________________________________________
+
+-- VÍDEO 01: Introducción a PHPUnit
+___________________________________________________________________________________________________________________
+
+01. Descargar e Instalar composer desde: https://getcomposer.org/download/
+02. Crear la carpeta raíz 'exs01_php_test_calculator' del proyecto en: C:\xampp\htdocs\
+03. Abrir la carpeta raíz con Visual Studio Code
+04. Abrir una terminal: ctrl + ñ
+05. Identificar la version de composer y php: composer --version
+06. Limpiar la terminal: cls (o 'clear' en el bash)
+07. Crear los directorios del proyecto:
+      -- src
+      -- tests
+         -- integration
+         -- unit
+08. Ir al directorio 'test' (powershell): cd .\tests\
+09. Descargar phpunit (powershell): wget -O phpunit.phar https://phar.phpunit.de/phpunit-10.phar; 
+    quedará como sigue:
+      -- src
+      -- tests
+         -- integration
+         -- unit
+         -- phpunit.phar
+10. Ver todas las carpetas y archivos: ls
+11. Ver la versión de phpunit.phar (powershell): php phpunit.phar --version
+12. Ver la versión de phpunit.phar (bash): ./phpunit.phar --version
+13. Hacer que el PHAR sea ejecutable (bash): chmod +x phpunit.phar
+14. Ejecutar (bash): ./phpunit.phar
+
+___________________________________________________________________________________________________________________
+
+-- VÍDEO 02: Mi primera prueba con PHPUnit
+___________________________________________________________________________________________________________________
+
+15. Crear en la carpeta 'unit' el archivo 'StackTest.php', con el siguiente código
+
+      <?php declare(strict_types=1);
+
+         use PHPUnit\Framework\TestCase;
+
+         final class StackTest extends TestCase{
+
+            public function test_sumar(): void {
+
+                  $num1 = 1;
+                  $num2 = 2;
+
+                  // Comprobaciones de afirmaciones
+                  $this->assertSame(3, $num1 + $num2);
+
+            }
+
+         }
+
+
+16. Ejecutar la prueba (bash): ./phpunit.phar ./
+17. Probar un solo caso de prueba: ./phpunit.phar ./unit/StackTest.php
+
+___________________________________________________________________________________________________________________
+
+-- VÍDEO 03: Atributos útiles de PHPUnit
+___________________________________________________________________________________________________________________
+
+18. Integrar y aplicar el atributo 'Test' a 'StackTest.php', para evitar usar la
+    palabra 'test' antes del método de prueba, quedando de la siguiente forma:
+
+      <?php declare(strict_types=1);
+
+      use PHPUnit\Framework\Attributes\Test;
+      use PHPUnit\Framework\TestCase;
+
+      final class StackTest extends TestCase{
+
+         #[Test]
+         public function sumar(): void {
+
+               $num1 = 1;
+               $num2 = 2;
+
+               // Comprobaciones de afirmaciones
+               $this->assertSame(3, $num1 + $num2);
+
+         }
+
+      }
+
+19. Ejecutar la prueba (bash): ./phpunit.phar ./
+20. Integrar y aplicar el atributo 'TestDox' a 'StackTest.php', para comentar el
+    método de prueba, quedando de la siguiente forma:
+
+      <?php declare(strict_types=1);
+
+      use PHPUnit\Framework\Attributes\Test;
+      use PHPUnit\Framework\Attributes\TestDox;
+      use PHPUnit\Framework\TestCase;
+
+      final class StackTest extends TestCase{
+
+         #[TestDox('Suma de dos números Enteros')]
+         #[Test]
+         public function sumar(): void {
+
+               $num1 = 1;
+               $num2 = 2;
+
+               // Comprobaciones de afirmaciones
+               $this->assertSame(3, $num1 + $num2);
+
+         }
+
+      }
+
+21. Ejecutar la prueba (bash): ./phpunit.phar --testdox ./unit/StackTest.php
+22. Integrar y aplicar el atributo 'DataProvider' a 'StackTest.php', para aplicar al método
+    de prueba un método que recibe varios valores (por arreglo), quedando de la siguiente forma:
+
+      <?php declare(strict_types=1);
+
+      use PHPUnit\Framework\Attributes\Test;
+      use PHPUnit\Framework\Attributes\TestDox;
+      use PHPUnit\Framework\Attributes\DataProvider;
+      use PHPUnit\Framework\TestCase;
+
+      final class StackTest extends TestCase {
+
+         #[DataProvider('dataProvider')]
+         #[TestDox('Al Sumar el $num1 con $num2 el resultado es $expected')]
+         #[Test]
+         public function sumar(int $expected, int $num1, int $num2): void {
+
+            // Comprobaciones de afirmaciones
+            $this->assertSame($expected, $num1 + $num2);
+         }
+
+         public static function dataProvider(){
+
+            return [
+                  'data set 1' => [0, 0, 0],
+                  'data set 2' => [1, 0, 1],
+                  'data set 3' => [1, 1, 0],
+                  'data set 4' => [3, 1, 1]
+            ];
+
+         }
+
+      }
+
+23. Ejecutar la prueba (bash): ./phpunit.phar --testdox ./unit/StackTest.php
+
+___________________________________________________________________________________________________________________
+
+-- VÍDEO 04: Configurando PHPUnit xml
+___________________________________________________________________________________________________________________
+
+24. Crear el archivo 'phpunit.xml' en la carpeta 'tests', de la siguiente forma:
+
+      <?xml version="1.0" encoding="UTF-8"?>
+      <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/|version|/phpunit.xsd">
+         <testsuites>
+            <testsuite name="unit">
+                  <directory phpVersion="8.2.12" phpVersionOperator=">=">unit</directory>
+            </testsuite>
+
+            <testsuite name="integration">
+                  <directory phpVersion="8.2.12" phpVersionOperator=">=">integration</directory>
+            </testsuite>
+         </testsuites>
+      </phpunit>
+
+25. Ejecutar la prueba (bash): ./phpunit.phar --testdox
+
+___________________________________________________________________________________________________________________
+
+-- VÍDEO 05: Generación de Reportes en PHPUnit
+___________________________________________________________________________________________________________________
+
+26. Integrar y aplicar la etiqueta '<logging>' al archivo 'phpunit.xml', para generar reportes en 
+   *.html y ..txt, quedando de la siguiente forma:
+
+      <?xml version="1.0" encoding="UTF-8"?>
+      <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/|version|/phpunit.xsd">
+         <testsuites>
+            <testsuite name="unit">
+                  <directory phpVersion="8.2.12" phpVersionOperator=">=">unit</directory>
+            </testsuite>
+            <testsuite name="integration">
+                  <directory phpVersion="8.2.12" phpVersionOperator=">=">integration</directory>
+            </testsuite>
+         </testsuites>
+         <logging>        
+            <testdoxHtml outputFile="report/testdox.html"/>
+            <testdoxText outputFile="report/testdox.txt"/>
+         </logging>
+      </phpunit>
+
+27. Ejecutar la prueba (bash): ./phpunit.phar --testdox
+
+___________________________________________________________________________________________________________________
+
+-- VÍDEO 06: Instalación de PHPUnit con Composer
+___________________________________________________________________________________________________________________
+
+28. Crear carpeta raíz en cualquier lugar del explorador (Ejemplo: 'ex06_instalacion_composer')
+29. Abrir la carpeta raíz con Visual Studio Code
+30. Abrir una terminal: ctrl + ñ (Se sugiere 'Git Bash')
+31. Ejecutar (bash): composer init
+32. Ejecutar (bash): Package name (<vendor>/<name>) [villa/ex06_instalacion_composer]: [Enter]
+33. Ejecutar (bash): Description []: [Enter]
+34. Ejecutar (bash): Author [ProfeAlbeiro <profealbeiro2020@gmail.com>, n to skip]: n
+35. Ejecutar (bash): Minimum Stability []: [Enter]
+36. Ejecutar (bash): Package Type (e.g. library, project, metapackage, composer-plugin) []: [Enter]
+37. Ejecutar (bash): License []: [Enter]
+38. Ejecutar (bash): Would you like to define your dependencies (require) interactively [yes]? no
+39. Ejecutar (bash): Would you like to define your dev dependencies (require-dev) interactively [yes]? yes
+40. Ejecutar (bash): Search for a package: phpunit
+41. Ejecutar (bash): Enter package # to add, or the complete package name if it is not listed: 0
+42. Ejecutar (bash): Enter the version constraint to require (or leave blank to use the latest version): [Enter]
+43. Ejecutar (bash): Search for a package: [Enter]
+44. Ejecutar (bash): Add PSR-4 autoload mapping? Maps namespace "Villa\Ex06InstalacionComposer" to the entered 
+                     relative path. [src/, n to skip]: [Enter]
+
+                        {
+                              "name": "villa/ex06_instalacion_composer",
+                              "require-dev": {
+                                    "phpunit/phpunit": "^11.3"
+                              },
+                              "autoload": {
+                                    "psr-4": {
+                                          "Villa\\Ex06InstalacionComposer\\": "src/"
+                                    }
+                              },
+                              "require": {}
+                        }
+
+45. Ejecutar (bash): Do you confirm generation [yes]? [Enter]
+46. Ejecutar (bash): Would you like to install dependencies now [yes]? [Enter]
+47. Modificar el archivo 'composer.json' de la siguiente forma:
+
+      {
+            "name": "villa/ex06_instalacion_composer",
+            "require-dev": {
+                  "phpunit/phpunit": "^11.3"
+            },
+            "autoload": {
+                  "psr-4": {
+                        "Src\\": "src/"
+                  }
+            },
+            "require": {}
+      }
+
+48. Ejecutar (bash): composer dump-autoload
+    Para que composer reconozca que el directorio 'src' como namespace
+49. Crear la carpeta 'tests' en la carpeta raíz y en su interior, las carpetas: 'unit' e 'integration'
+50. Crear el archivo 'build.tests.sh' con el siguiente código:
+
+      #!/bin/bash
+      ./vendor/phpunit/phpunit/phpunit --testdox tests
+
+51. Ejecutar la prueba (bash): ./build.tests.sh
+
+___________________________________________________________________________________________________________________
+
+-- VÍDEO 07: Assertions en PHPUnit
+___________________________________________________________________________________________________________________
+
+52. Crear el archivo 'phpunit.xml' en la carpeta raíz, con el siguiente código:
+
+      <?xml version="1.0" encoding="UTF-8"?>
+      <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/|version|/phpunit.xsd">
+            <testsuites>
+                  <testsuite name="unit">
+                        <directory phpVersion="8.2.12" phpVersionOperator=">=">unit</directory>
+                  </testsuite>
+                  <testsuite name="integration">
+                        <directory phpVersion="8.2.12" phpVersionOperator=">=">integration</directory>
+                  </testsuite>
+            </testsuites>
+            <logging>        
+                  <testdoxHtml outputFile="report/testdox.html"/>
+                  <testdoxText outputFile="report/testdox.txt"/>
+            </logging>
+      </phpunit>
+
+53. Crear el archivo 'FirstTestClassTest.php' en la carpeta 'unit', con el siguiente código:
+
+      <?php declare(strict_types=1);
+
+      use PHPUnit\Framework\Attributes\Test;
+      use PHPUnit\Framework\Attributes\TestDox;
+      use PHPUnit\Framework\TestCase;
+
+      final class FirstTestClassTest extends TestCase {
+      
+            #[Test]
+            #[TestDox('Prueba Inicial: Composer y PHPUnit')]
+            public function exampleSome(): void {
+                  $expected = "Hola";
+                  $actual = "Hola";
+                  $this->assertSame($expected, $actual, "Los valores no son iguales");
+            }
+
+      }
+
+54. Ejecutar la prueba (bash): ./build.tests.sh
+
+___________________________________________________________________________________________________________________
+
+-- VÍDEO 08: AssertTrue y AssertNotTrue en PHPUnit
+___________________________________________________________________________________________________________________
+
+55. Crear el archivo 'AssertTrueClassTest.php' en la carpeta 'unit', con el siguiente código:
+
+      <?php declare(strict_types=1);
+
+      use PHPUnit\Framework\Attributes\Test;
+      use PHPUnit\Framework\Attributes\TestDox;
+      use PHPUnit\Framework\TestCase;
+
+      final class AssertSameClassTest extends TestCase {
+      
+            #[Test]
+            #[TestDox('Prueba de assertSame: Identico')]
+            public function assertSameTest(): void {
+                  $expected = "Hola";
+                  $actual = "Hola";
+                  $this->assertSame($expected, $actual, "Los valores no son iguales");
+            }
+            
+            #[Test]
+            #[TestDox('Prueba de assertNotSame: No es Identico')]
+            public function assertNotSameTest(): void {
+                  $expected = "Hola";
+                  $actual = "Hola";
+                  $this->assertSame($expected, $actual, "Los valores no son iguales");
+            }
+
+      }
+
+56. Ejecutar la prueba (bash): ./build.tests.sh
+
+___________________________________________________________________________________________________________________
+
+-- VÍDEO 09: AssertSame y AssertNotSame en PHPUnit
+___________________________________________________________________________________________________________________
+
+57. Crear el archivo 'AssertSameClassTest.php' en la carpeta 'unit', con el siguiente código:
+
+      <?php declare(strict_types=1);
+
+      use PHPUnit\Framework\Attributes\Test;
+      use PHPUnit\Framework\Attributes\TestDox;
+      use PHPUnit\Framework\TestCase;
+
+      final class AssertSameClassTest extends TestCase {
+      
+            #[Test]
+            #[TestDox('Prueba de assertSame: Identico')]
+            public function assertSameTest(): void {
+                  $expected = "Hola";
+                  $actual = "Hola";
+                  $this->assertSame($expected, $actual, "Los valores no son identicos");
+            }
+            
+            #[Test]
+            #[TestDox('Prueba de assertNotSame: No es Identico')]
+            public function assertNotSameTest(): void {
+                  $expected = new stdClass;
+                  $actual = new stdClass;
+                  $this->assertNotSame($expected, $actual, "Los objetos son identicos");
+            }
+
+      }
+
+58. Ejecutar la prueba (bash): ./build.tests.sh
+
+___________________________________________________________________________________________________________________
+
+-- VÍDEO 10: AssertEquals y AssertNotEquals en PHPUnit
+___________________________________________________________________________________________________________________
+
+59. Crear el archivo 'AssertEqualsClassTest.php' en la carpeta 'unit', con el siguiente código:
+
+      <?php declare(strict_types=1);
+
+      use PHPUnit\Framework\Attributes\Test;
+      use PHPUnit\Framework\Attributes\TestDox;
+      use PHPUnit\Framework\TestCase;
+
+      final class AssertEqualsClassTest extends TestCase {
+      
+            #[Test]
+            #[TestDox('Prueba de assertEquals con Fechas: Igual')]
+            public function assertEqualsDatesTest(): void {
+                  $expected = new DateTimeImmutable("2024-04-01 15:00:35");
+                  $actual = new DateTimeImmutable("2024-04-01 15:00:35");
+                  $this->assertEquals($expected, $actual, "Las fechas no son iguales");
+            }
+            
+            #[Test]
+            #[TestDox('Prueba de assertEquals con archivos: Igual')]
+            public function assertEqualsFilesTest(): void {
+                  $expected = new DOMDocument;
+                  $expected->loadXML("<foo><bar/></foo>");
+                  $actual = new DOMDocument;
+                  $actual->loadXML("<bar><foo/></bar>");                  
+                  $this->assertEquals($expected, $actual, "Los archivos no son iguales");
+            }
+
+      }
+
+60. Ejecutar la prueba (bash): ./build.tests.sh

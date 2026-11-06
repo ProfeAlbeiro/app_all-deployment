@@ -1,0 +1,47 @@
+|||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
+|||--------------------------------------------------------------------------------------------------------------------------------------------------------------------|||
+|||------------------------------------------------------------------------------- SQL --------------------------------------------------------------------------------|||
+|||--------------------------------------------------------------------------------------------------------------------------------------------------------------------|||
+|||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
+|||                                                                                                                                                                    |||
+||| --  01. DISEÑO DE BASES DE DATOS                                                                                                                                   |||
+||| --  02. DISEÑO CONCEPTUAL DE LA BASE DE DATOS                                                                                                                      |||
+||| --  03. DISEÑO LÓGICO DE LA BASE DE DATOS                                                                                                                          |||
+||| --  04. DISEÑO FÍSICO DE LA BASE DE DATOS                                                                                                                          |||
+||| --  05. CONSULTAS EN LA BASE DE DATOS                                                                                                                              |||
+||| --  06. PROGRAMACIÓN EN LA BASE DE DATOS                                                                                                                           |||
+||| --  07. SEGURIDAD EN LA BASE DE DATOS                                                                                                                              |||
+|||                                                                                                                                                                    |||
+||| --  ANEXOS: TENER EN CUENTA                                                                                                                                        |||
+||| --          AX_01.  Subir el Proyecto a Github                                                                                                                     |||
+||| --          AX_02.  Clonar un proyecto de Github                                                                                                                   |||
+||| --          AX_03.  Cambiar los puertos de 'Apache' en 'XAMPP'                                                                                                     |||
+||| --          AX_04.  Cambiar los puertos de 'MySQL' en 'XAMPP'                                                                                                      |||
+||| --          AX_05.  Puesta en Marcha del Proyecto                                                                                                                  |||
+|||                                                                                                                                                                    |||
+||| --  Bibliografía  https://conclase.net/mysql                                                                                                                       |||
+|||                   https://www.tutorialesprogramacionya.com/mysqlya/                                                                                                |||
+|||                   https://www.youtube.com/playlist?list=PLU8oAlHdN5Bmx-LChV4K3MbHrpZKefNwn                                                                         |||
+|||                   https://josejuansanchez.org/bd/unidad-12-teoria/index.html                                                                                       |||
+|||                                                                                                                                                                    |||
+|||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
+|||                                                                                                                                                                    |||
+||| --  01. DISEÑO DE BASES DE DATOS                                                                                                                                   |||
+||| --  02. DISEÑO CONCEPTUAL DE LA BASE DE DATOS                                                                                                                      |||
+||| --      02.01.  MER: Modelo Entidad Relación                                                                                                                       |||
+||| --  03. DISEÑO LÓGICO DE LA BASE DE DATOS                                                                                                                          |||
+||| --      03.01.  MR: Modelo Relacional                                                                                                                              |||
+||| --  04. DISEÑO FÍSICO DE LA BASE DE DATOS                                                                                                                          |||
+||| --      04.01.  SQL: Lenguaje de Consulta Estructurada (Structured Query Language)                                                                                 |||
+||| --      04.02.  DDL: Lenguaje de Definición de Datos (Data Definition Language)                                                                                    |||
+||| --  05. CONSULTAS EN LA BASE DE DATOS                                                                                                                              |||
+||| --      05.01.  DML: Lenguaje de Manipulación de Datos (Data Manipulation Language). Datos                                                                         |||
+||| --      05.02.  DML: Lenguaje de Manipulación de Datos (Data Manipulation Language). Una tabla                                                                     |||
+||| --      05.03.  DML: Lenguaje de Manipulación de Datos (Data Manipulation Language). Multitabla                                                                    |||
+||| --  06. PROGRAMACIÓN EN LA BASE DE DATOS                                                                                                                           |||
+||| --      06.01.  VIEWS: Vistas                                                                                                                                      |||
+||| --      06.02.  PROCEDURES: Procedimientos Almacenados                                                                                                             |||
+||| --      06.03.  TRIGGERS: Disparadores                                                                                                                             |||
+||| --  07. SEGURIDAD EN LA BASE DE DATOS                                                                                                                              |||
+|||                                                                                                                                                                    |||
+|||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
